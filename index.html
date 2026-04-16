@@ -22,6 +22,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{color:var(--rust)!important;border:1px solid var(--rust)!important;padding:6px 18px;border-radius:20px}
 .nav-cta:hover{background:var(--rust)!important;color:white!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;display:block}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(245,240,232,0.97);backdrop-filter:blur(20px);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:28px;font-family:'Fraunces',serif;font-weight:300;color:var(--ink);text-decoration:none;letter-spacing:-0.02em}
+.mobile-menu a:hover{color:var(--rust)}
+.mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ink)}
+@media(max-width:767px){.hamburger{display:flex}}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;overflow:hidden}
@@ -249,16 +257,132 @@ footer{background:var(--ink);padding:2.5rem 3rem;display:flex;align-items:center
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* MOBILE */
-@media(max-width:768px){
-nav{padding:1rem 1.5rem}.nav-links{display:none}
-.hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:5rem 1.5rem 3rem}
-.ws,.case-inner,.more-inner,.exp-inner{padding:4rem 1.5rem}
-.about-grid,.case-brief,.real-screens,.wf-grid,.wf-grid-2{grid-template-columns:1fr}
-.outcomes,.pgrid,.skills-grid{grid-template-columns:1fr 1fr}
-.exp-item{grid-template-columns:1fr;gap:.5rem}
-.pub-grid{grid-template-columns:1fr}
-footer{flex-direction:column;gap:1.25rem;text-align:center}
+/* RESPONSIVE — all breakpoints */
+
+/* Large desktop 1400px+ */
+@media(min-width:1400px){
+  .ws,.case-inner,.more-inner,.exp-inner{max-width:1320px}
+  .hero-name{font-size:90px}
+  .stitle{font-size:60px}
+}
+
+/* Tablet landscape 1024–1199px */
+@media(max-width:1199px){
+  .hero-name{font-size:56px}
+  .stitle{font-size:40px}
+  .ws,.case-inner,.more-inner,.exp-inner{padding-left:2rem;padding-right:2rem}
+  .about-grid{gap:3rem}
+  .wf-grid{grid-template-columns:1fr 1fr}
+  .outcomes{grid-template-columns:1fr 1fr;gap:.85rem}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:160px 1fr;gap:2rem}
+  .hero-left{padding:4rem 2rem 3rem}
+}
+
+/* Tablet portrait 768–1023px */
+@media(max-width:1023px){
+  nav{padding:1rem 1.5rem}
+  .nav-links li:not(:last-child){display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:6rem 2rem 3rem;min-height:auto}
+  .hero-name{font-size:52px}
+  .hero-desc{font-size:15px;max-width:100%}
+  .hero-stats{gap:1.5rem}
+  .ws,.case-inner,.more-inner,.exp-inner{padding:5rem 2rem}
+  .stitle{font-size:38px}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .case-brief,.case-brief.light-brief{grid-template-columns:1fr;gap:2rem}
+  .wf-grid{grid-template-columns:1fr 1fr}
+  .wf-grid-2{grid-template-columns:1fr 1fr}
+  .real-screens{grid-template-columns:1fr 1fr}
+  .outcomes{grid-template-columns:1fr 1fr;gap:.75rem}
+  .process-timeline .pt-step{grid-template-columns:120px 1fr;gap:1.5rem}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:140px 1fr;gap:1.5rem}
+  .pub-grid{grid-template-columns:1fr 1fr}
+  footer{flex-wrap:wrap;gap:1rem}
+  .hcard{width:280px}
+}
+
+/* Mobile 480–767px */
+@media(max-width:767px){
+  nav{padding:.85rem 1.25rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{display:none}
+  .hero-left{padding:5.5rem 1.25rem 3rem}
+  .hero-name{font-size:42px;line-height:1.05}
+  .hero-tag{font-size:11px;margin-bottom:1.25rem}
+  .hero-desc{font-size:15px;margin-bottom:2rem}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .btn-ink,.btn-ghost{font-size:13px;padding:12px 22px}
+  .hero-stats{gap:1.5rem;margin-top:2.5rem;padding-top:1.5rem;flex-wrap:wrap}
+  .stat-num{font-size:26px}
+  .stat-label{font-size:11px}
+  .ws{padding:4rem 1.25rem}
+  .case-inner,.more-inner,.exp-inner{padding:4rem 1.25rem}
+  .eyebrow{font-size:11px}
+  .stitle{font-size:30px;line-height:1.15}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .about-text{font-size:15px}
+  .hi{padding:1rem 1.25rem}
+  .case-brief,.case-brief.light-brief{grid-template-columns:1fr;gap:1.5rem;margin-top:2rem;padding-top:2rem}
+  .case-text{font-size:14px}
+  .challenge-box{padding:1.5rem}
+  .challenge-title{font-size:18px}
+  .challenge-text{font-size:14px}
+  .process-timeline .pt-step{grid-template-columns:1fr;gap:.75rem;padding:2rem 0}
+  .pt-phase{font-size:10px;margin-bottom:.25rem}
+  .pt-title{font-size:18px}
+  .pt-text{font-size:13px}
+  .wf-grid{grid-template-columns:1fr}
+  .wf-grid-2{grid-template-columns:1fr}
+  .real-screens{grid-template-columns:1fr;gap:1.5rem}
+  .insights{gap:.4rem}
+  .insight{font-size:11px;padding:4px 10px}
+  .decision{padding:1rem 1.25rem}
+  .decision-text{font-size:12px}
+  .outcomes{grid-template-columns:1fr 1fr;gap:.6rem;margin-top:2rem}
+  .outcome{padding:1rem}
+  .outcome-num{font-size:26px}
+  .outcome-label{font-size:11px}
+  .pgrid{grid-template-columns:1fr;gap:1rem}
+  .pvis{height:200px}
+  .pbody{padding:1.25rem}
+  .skills-grid{grid-template-columns:1fr;gap:1rem}
+  .skill-cat{padding:1.5rem}
+  .exp-item{grid-template-columns:1fr;gap:.4rem;padding:1.75rem 0}
+  .exp-role{font-size:18px}
+  .exp-bullets li{font-size:13px}
+  .pub-grid{grid-template-columns:1fr;gap:.75rem}
+  .cta-wrap{padding:5rem 1.25rem}
+  .cta-title{font-size:32px}
+  .cta-sub{font-size:15px}
+  .cta-inner div{flex-direction:column;align-items:center}
+  .btn-cream{width:100%;justify-content:center;max-width:320px}
+  footer{flex-direction:column;gap:1.25rem;text-align:center;padding:2rem 1.25rem}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:1rem}
+  .case-wrap{padding:5rem 0}
+  .more-wrap{padding:5rem 0}
+}
+
+/* Small mobile 320–479px */
+@media(max-width:479px){
+  .hero-left{padding:5rem 1rem 2.5rem}
+  .hero-name{font-size:36px}
+  .hero-desc{font-size:14px}
+  .ws{padding:3.5rem 1rem}
+  .case-inner,.more-inner,.exp-inner{padding:3.5rem 1rem}
+  .stitle{font-size:26px}
+  .outcomes{grid-template-columns:1fr 1fr}
+  .outcome-num{font-size:22px}
+  .hcard{width:260px;padding:1.5rem}
+  .hcard-title{font-size:17px}
+  nav{padding:.75rem 1rem}
+  .nav-logo{font-size:15px}
 }
 </style>
 </head>
@@ -272,7 +396,19 @@ footer{flex-direction:column;gap:1.25rem;text-align:center}
     <li><a href="#experience">Experience</a></li>
     <li><a href="#" onclick="window.open('mailto:hemamadhav3@gmail.com');return false;" class="nav-cta">Let's talk</a></li>
   </ul>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+  <a href="#work" onclick="document.getElementById('mobileMenu').classList.remove('open')">Work</a>
+  <a href="#skills" onclick="document.getElementById('mobileMenu').classList.remove('open')">Skills</a>
+  <a href="#experience" onclick="document.getElementById('mobileMenu').classList.remove('open')">Experience</a>
+  <a href="#" onclick="window.open('mailto:hemamadhav3@gmail.com');document.getElementById('mobileMenu').classList.remove('open');return false;" style="color:var(--rust);font-size:20px;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0">hemamadhav3@gmail.com</a>
+</div>
 
 <div class="hero">
   <div class="hero-left">
