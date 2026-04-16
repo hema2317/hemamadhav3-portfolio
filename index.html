@@ -525,6 +525,182 @@ footer {
   .flinks{justify-content:center;flex-wrap:wrap;gap:1.25rem}
   .about-inner{padding:4rem 1.5rem}
 }
+
+/* ─── CASE STUDY EXPAND SYSTEM ──────────────────── */
+.cs-expand-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--ink2);
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 9px 18px; border-radius: 100px;
+  cursor: pointer; font-family: 'Outfit', sans-serif;
+  transition: all .2s; margin-top: .75rem;
+  letter-spacing: 0.01em;
+}
+.cs-expand-btn:hover { border-color: var(--ink); color: var(--ink); background: var(--surface); }
+.cs-expand-btn .arrow { transition: transform .3s; display: inline-block; font-style: normal; }
+.cs-expand-btn.open .arrow { transform: rotate(180deg); }
+.cs.c1 .cs-expand-btn:hover { border-color: var(--green); color: var(--green); }
+.cs.c2 .cs-expand-btn:hover { border-color: var(--amber); color: var(--amber); }
+.cs.c3 .cs-expand-btn:hover { border-color: var(--blue); color: var(--blue); }
+.cs.c4 .cs-expand-btn:hover { border-color: var(--rose); color: var(--rose); }
+
+.cs-full-panel {
+  display: none;
+  grid-column: 1 / -1;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 3rem;
+  animation: panelIn .4s cubic-bezier(.16,1,.3,1);
+}
+.cs-full-panel.open { display: block; }
+@keyframes panelIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* Panel tabs */
+.panel-tabs {
+  display: flex; gap: .375rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+}
+.ptab {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--ink2); background: none; border: none;
+  padding: .7rem 1.1rem; cursor: pointer;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+  font-family: 'Outfit', sans-serif; transition: all .2s;
+  white-space: nowrap;
+}
+.ptab.active { color: var(--green); border-bottom-color: var(--green); }
+.c2-panel .ptab.active { color: var(--amber); border-bottom-color: var(--amber); }
+.c3-panel .ptab.active { color: var(--blue); border-bottom-color: var(--blue); }
+.c4-panel .ptab.active { color: var(--rose); border-bottom-color: var(--rose); }
+
+.ptab-content { display: none; }
+.ptab-content.active { display: block; }
+
+/* Inside panel layout */
+.panel-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+.panel-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 2rem; }
+.panel-full { margin-bottom: 2rem; }
+
+.panel-h {
+  font-family: 'Lora', serif; font-size: 20px; font-weight: 500;
+  color: var(--ink); margin-bottom: .6rem; letter-spacing: -0.02em;
+}
+.panel-sub { font-size: 14px; color: var(--ink2); line-height: 1.75; font-weight: 300; margin-bottom: 1.25rem; }
+.panel-sub strong { color: var(--ink); font-weight: 500; }
+
+/* Wireframe card */
+.wf-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.wf-box-header {
+  padding: .6rem 1rem; background: #F5F5F3;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px; font-weight: 600; color: var(--ink2);
+  letter-spacing: .05em; text-transform: uppercase;
+}
+.wf-box-body { padding: .75rem; }
+.wf-box-note {
+  padding: .6rem 1rem; font-size: 11px; color: var(--ink2);
+  border-top: 1px solid var(--border); line-height: 1.5;
+  background: var(--bg);
+}
+
+/* Insight pill */
+.insight-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.insight-pill {
+  font-size: 12px; padding: 5px 13px; border-radius: 100px;
+  border: 1px solid rgba(45,106,79,0.25);
+  background: var(--green-lt); color: var(--green);
+}
+.c2-panel .insight-pill { background: var(--amber-lt); color: var(--amber); border-color: rgba(200,120,58,0.25); }
+.c3-panel .insight-pill { background: var(--blue-lt); color: var(--blue); border-color: rgba(43,76,140,0.25); }
+.c4-panel .insight-pill { background: var(--rose-lt); color: var(--rose); border-color: rgba(153,68,85,0.25); }
+
+/* Decision box */
+.decision-box {
+  background: var(--surface); border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1rem 0;
+}
+.c2-panel .decision-box { border-left-color: var(--amber); }
+.c3-panel .decision-box { border-left-color: var(--blue); }
+.c4-panel .decision-box { border-left-color: var(--rose); }
+.decision-box-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 5px;
+}
+.c2-panel .decision-box-label { color: var(--amber); }
+.c3-panel .decision-box-label { color: var(--blue); }
+.c4-panel .decision-box-label { color: var(--rose); }
+.decision-box-text { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+.decision-box-text strong { color: var(--ink); font-weight: 500; }
+
+/* Outcome grid */
+.outcome-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin: 1.5rem 0; }
+.outcome-cell {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.25rem; text-align: center;
+}
+.outcome-val {
+  font-family: 'Lora', serif; font-size: 28px; font-weight: 500;
+  color: var(--green); line-height: 1; margin-bottom: 5px;
+}
+.c2-panel .outcome-val { color: var(--amber); }
+.c3-panel .outcome-val { color: var(--blue); }
+.c4-panel .outcome-val { color: var(--rose); }
+.outcome-lbl { font-size: 12px; color: var(--ink2); line-height: 1.4; }
+
+/* Journey map */
+.journey-map { display: flex; gap: 0; margin: 1.5rem 0; overflow-x: auto; }
+.jm-step {
+  flex: 1; min-width: 120px; padding: 1.25rem 1rem;
+  border-right: 1px solid var(--border); text-align: center;
+  background: var(--surface); position: relative;
+}
+.jm-step:last-child { border-right: none; }
+.jm-step::after {
+  content: '→'; position: absolute; right: -10px; top: 50%;
+  transform: translateY(-50%); color: var(--border); font-size: 16px; z-index:1;
+}
+.jm-step:last-child::after { display: none; }
+.jm-phase {
+  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 6px;
+}
+.c2-panel .jm-phase { color: var(--amber); }
+.c3-panel .jm-phase { color: var(--blue); }
+.jm-action { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+.jm-feeling { font-size: 20px; margin-bottom: 5px; }
+.jm-pain { font-size: 11px; color: var(--ink2); line-height: 1.4; }
+
+/* Live site strip */
+.live-strip {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.25rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 1.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.live-strip-left { display: flex; align-items: center; gap: 10px; }
+.live-dot2 { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; animation: pulse 2s infinite; }
+.live-strip-text { font-size: 14px; font-weight: 500; color: var(--ink); }
+.live-strip-url { font-size: 13px; color: var(--ink2); }
+.live-strip-btn {
+  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600;
+  background: var(--ink); color: #fff; padding: 9px 22px;
+  border-radius: 100px; border: none; cursor: pointer; transition: all .2s;
+}
+.live-strip-btn:hover { background: var(--green); }
+
+/* Responsive */
+@media(max-width:767px){
+  .panel-2col,.panel-3col,.outcome-row { grid-template-columns: 1fr; }
+  .cs-full-panel { padding: 1.75rem 1.25rem; }
+  .journey-map { flex-direction: column; }
+  .jm-step { border-right: none; border-bottom: 1px solid var(--border); }
+  .jm-step::after { display: none; }
+}
 </style>
 </head>
 <body>
@@ -682,9 +858,377 @@ footer {
             <div><div class="cs-num-val">2026</div><div class="cs-num-lbl">Published research</div></div>
           </div>
         </div>
-        <button onclick="window.open('https://www.askdoccare.com','_blank')" class="cs-link">
-          View project <span class="cs-link-arrow">→</span>
-        </button>
+        <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+          <button onclick="window.open('https://www.askdoccare.com','_blank')" class="cs-link">
+            View live ↗ <span class="cs-link-arrow">→</span>
+          </button>
+          <button class="cs-expand-btn" onclick="togglePanel('p1',this)">
+            See full case study <em class="arrow">↓</em>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ASKDOC FULL PANEL -->
+    <div class="cs-full-panel" id="p1">
+      <div class="panel-tabs">
+        <button class="ptab active" onclick="switchTab(this,'p1-research')">01 Research</button>
+        <button class="ptab" onclick="switchTab(this,'p1-define')">02 Define</button>
+        <button class="ptab" onclick="switchTab(this,'p1-wireframes')">03 Wireframes</button>
+        <button class="ptab" onclick="switchTab(this,'p1-prototype')">04 Prototype</button>
+        <button class="ptab" onclick="switchTab(this,'p1-journey')">05 Journey Map</button>
+        <button class="ptab" onclick="switchTab(this,'p1-outcomes')">06 Outcomes</button>
+      </div>
+
+      <div class="ptab-content active" id="p1-research">
+        <div class="panel-2col">
+          <div>
+            <div class="panel-h">User Research — Understanding Health Anxiety</div>
+            <div class="panel-sub">Interviewed <strong>12 participants</strong> across 3 groups: parents with young children, adults managing chronic conditions, and elderly users. Ran contextual inquiry sessions watching how people actually searched for health info — Google, Reddit, WebMD — and mapped the emotional journey from symptom to decision.</div>
+            <div class="insight-row">
+              <span class="insight-pill">87% felt more anxious after Googling symptoms</span>
+              <span class="insight-pill">Users want acknowledgement before information</span>
+              <span class="insight-pill">Trust built through specificity, not reassurance</span>
+              <span class="insight-pill">Elderly users needed 3× more confirmation steps</span>
+              <span class="insight-pill">Mobile-first: 91% searched on phone at night</span>
+            </div>
+            <div class="decision-box">
+              <div class="decision-box-label">Key insight</div>
+              <div class="decision-box-text">People do not want a diagnosis. They want someone to say <strong>"I hear you, here is what this probably means, here is when to worry."</strong> The AI had to feel like a calm, informed friend — not a medical database.</div>
+            </div>
+          </div>
+          <div>
+            <div class="wf-box">
+              <div class="wf-box-header">Affinity map — pain point clusters</div>
+              <div class="wf-box-body">
+                <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+                  <rect x="6" y="6" width="348" height="208" rx="8" fill="#FFFDE7" stroke="#F9A825" stroke-width=".5" opacity=".6"/>
+                  <rect x="14" y="14" width="78" height="40" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".8"/>
+                  <text x="53" y="29" text-anchor="middle" font-size="7.5" fill="#5D4037">Scary symptoms</text>
+                  <text x="53" y="41" text-anchor="middle" font-size="7.5" fill="#5D4037">googled at 2am</text>
+                  <rect x="100" y="14" width="78" height="40" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".8"/>
+                  <text x="139" y="29" text-anchor="middle" font-size="7.5" fill="#5D4037">No trusted</text>
+                  <text x="139" y="41" text-anchor="middle" font-size="7.5" fill="#5D4037">health source</text>
+                  <rect x="186" y="14" width="78" height="40" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".8"/>
+                  <text x="225" y="29" text-anchor="middle" font-size="7.5" fill="#5D4037">AI feels cold</text>
+                  <text x="225" y="41" text-anchor="middle" font-size="7.5" fill="#5D4037">and generic</text>
+                  <rect x="272" y="14" width="78" height="40" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".8"/>
+                  <text x="311" y="29" text-anchor="middle" font-size="7.5" fill="#5D4037">ER vs wait?</text>
+                  <text x="311" y="41" text-anchor="middle" font-size="7.5" fill="#5D4037">Hard decision</text>
+                  <rect x="14" y="62" width="78" height="40" rx="4" fill="#E8F5E9" stroke="#66BB6A" stroke-width=".8"/>
+                  <text x="53" y="77" text-anchor="middle" font-size="7.5" fill="#1B5E20">Want calm</text>
+                  <text x="53" y="89" text-anchor="middle" font-size="7.5" fill="#1B5E20">reassurance</text>
+                  <rect x="100" y="62" width="78" height="40" rx="4" fill="#E8F5E9" stroke="#66BB6A" stroke-width=".8"/>
+                  <text x="139" y="77" text-anchor="middle" font-size="7.5" fill="#1B5E20">Show AI</text>
+                  <text x="139" y="89" text-anchor="middle" font-size="7.5" fill="#1B5E20">confidence level</text>
+                  <rect x="186" y="62" width="78" height="40" rx="4" fill="#FCE4EC" stroke="#F06292" stroke-width=".8"/>
+                  <text x="225" y="77" text-anchor="middle" font-size="7.5" fill="#880E4F">Privacy fear</text>
+                  <text x="225" y="89" text-anchor="middle" font-size="7.5" fill="#880E4F">health data</text>
+                  <rect x="272" y="62" width="78" height="40" rx="4" fill="#E3F2FD" stroke="#64B5F6" stroke-width=".8"/>
+                  <text x="311" y="77" text-anchor="middle" font-size="7.5" fill="#0D47A1">Needs clear</text>
+                  <text x="311" y="89" text-anchor="middle" font-size="7.5" fill="#0D47A1">disclaimer UX</text>
+                  <rect x="14" y="110" width="78" height="40" rx="4" fill="#F3E5F5" stroke="#AB47BC" stroke-width=".8"/>
+                  <text x="53" y="125" text-anchor="middle" font-size="7.5" fill="#4A148C">Elderly struggle</text>
+                  <text x="53" y="137" text-anchor="middle" font-size="7.5" fill="#4A148C">with tech UX</text>
+                  <rect x="100" y="110" width="78" height="40" rx="4" fill="#F3E5F5" stroke="#AB47BC" stroke-width=".8"/>
+                  <text x="139" y="125" text-anchor="middle" font-size="7.5" fill="#4A148C">Large text</text>
+                  <text x="139" y="137" text-anchor="middle" font-size="7.5" fill="#4A148C">needed</text>
+                  <rect x="186" y="110" width="78" height="40" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".8"/>
+                  <text x="225" y="125" text-anchor="middle" font-size="7.5" fill="#5D4037">Parents want</text>
+                  <text x="225" y="137" text-anchor="middle" font-size="7.5" fill="#5D4037">child triage help</text>
+                  <rect x="272" y="110" width="78" height="40" rx="4" fill="#E8F5E9" stroke="#66BB6A" stroke-width=".8"/>
+                  <text x="311" y="125" text-anchor="middle" font-size="7.5" fill="#1B5E20">Save &amp; share</text>
+                  <text x="311" y="137" text-anchor="middle" font-size="7.5" fill="#1B5E20">with doctor</text>
+                  <text x="20" y="175" font-size="9" fill="#B8860B" font-weight="600">THEME A — Trust &amp; Safety</text>
+                  <rect x="20" y="180" width="80" height="4" rx="2" fill="#2D6A4F"/>
+                  <text x="110" y="175" font-size="9" fill="#B8860B" font-weight="600">THEME B — Information clarity</text>
+                  <rect x="110" y="180" width="80" height="4" rx="2" fill="#C8783A"/>
+                  <text x="200" y="175" font-size="9" fill="#B8860B" font-weight="600">THEME C — Accessibility</text>
+                  <rect x="200" y="180" width="80" height="4" rx="2" fill="#2B4C8C"/>
+                  <text x="290" y="175" font-size="9" fill="#B8860B" font-weight="600">THEME D — Action</text>
+                  <rect x="290" y="180" width="60" height="4" rx="2" fill="#994455"/>
+                </svg>
+              </div>
+              <div class="wf-box-note">n=12 participants · 3 user groups · contextual inquiry + interviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p1-define">
+        <div class="panel-h">Three Competing Design Directions</div>
+        <div class="panel-sub">Before committing to any solution I explored three fundamentally different approaches. Each had real trade-offs weighed against user research and HIPAA constraints.</div>
+        <div class="panel-3col">
+          <div class="wf-box">
+            <div class="wf-box-header">Direction A — Symptom Checker</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                <rect x="10" y="10" width="220" height="150" rx="8" fill="white" stroke="#E0E0E0" stroke-width="1"/>
+                <rect x="20" y="20" width="200" height="18" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width=".5"/>
+                <text x="120" y="33" text-anchor="middle" font-size="8" fill="#666">Select your symptom</text>
+                <rect x="20" y="44" width="90" height="28" rx="6" fill="#E8F2ED" stroke="#2D6A4F" stroke-width="1"/>
+                <text x="65" y="62" text-anchor="middle" font-size="8" fill="#2D6A4F">Head pain</text>
+                <rect x="118" y="44" width="90" height="28" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width=".5"/>
+                <text x="163" y="62" text-anchor="middle" font-size="8" fill="#999">Chest pain</text>
+                <rect x="20" y="78" width="90" height="28" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width=".5"/>
+                <text x="65" y="96" text-anchor="middle" font-size="8" fill="#999">Fever</text>
+                <rect x="118" y="78" width="90" height="28" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width=".5"/>
+                <text x="163" y="96" text-anchor="middle" font-size="8" fill="#999">Nausea</text>
+                <rect x="80" y="118" width="80" height="24" rx="12" fill="#2D6A4F"/>
+                <text x="120" y="134" text-anchor="middle" font-size="8" fill="white" font-weight="600">Next →</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">❌ Rejected — felt like filling out a form. Cold, clinical, no emotional acknowledgement.</div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">Direction B — Urgency Triage First</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                <rect x="10" y="10" width="220" height="150" rx="8" fill="white" stroke="#E0E0E0" stroke-width="1"/>
+                <text x="120" y="34" text-anchor="middle" font-size="9" fill="#C62828" font-weight="600">Is this an emergency?</text>
+                <circle cx="120" cy="85" r="38" fill="none" stroke="#C62828" stroke-width="2"/>
+                <circle cx="120" cy="85" r="26" fill="none" stroke="#E57373" stroke-width="1.5"/>
+                <text x="120" y="90" text-anchor="middle" font-size="11" fill="#C62828" font-weight="700">Urgent?</text>
+                <rect x="18" y="136" width="55" height="18" rx="4" fill="#C62828"/>
+                <text x="45" y="148" text-anchor="middle" font-size="7.5" fill="white">Emergency</text>
+                <rect x="82" y="136" width="55" height="18" rx="4" fill="#EF9A9A"/>
+                <text x="109" y="148" text-anchor="middle" font-size="7.5" fill="white">Monitor</text>
+                <rect x="146" y="136" width="76" height="18" rx="4" fill="#FFCDD2"/>
+                <text x="184" y="148" text-anchor="middle" font-size="7.5" fill="#C62828">Routine care</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">❌ Rejected — front-loading urgency caused anxiety before understanding. Defeated the purpose.</div>
+          </div>
+          <div class="wf-box" style="border-color:var(--green)">
+            <div class="wf-box-header" style="background:var(--green-lt);color:var(--green)">Direction C — Conversational ✓ Chosen</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 240 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#0D1628">
+                <rect x="18" y="14" width="160" height="26" rx="12" fill="#1A2540"/>
+                <text x="98" y="31" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.7)">How can I help you today?</text>
+                <rect x="62" y="46" width="130" height="22" rx="8" fill="rgba(45,106,79,.35)"/>
+                <text x="127" y="61" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,.85)">I have a bad headache...</text>
+                <rect x="18" y="74" width="165" height="36" rx="12" fill="#1A2540"/>
+                <text x="100" y="89" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,.7)">Tension headache is likely.</text>
+                <text x="100" y="102" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,.7)">Confidence: Moderate ⚡</text>
+                <rect x="18" y="116" width="72" height="12" rx="6" fill="rgba(45,106,79,.3)"/>
+                <text x="54" y="126" text-anchor="middle" font-size="6.5" fill="#7DC4A0">Not a diagnosis</text>
+                <rect x="18" y="148" width="204" height="16" rx="8" fill="#1A2540"/>
+                <text x="80" y="159" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.3)">Ask anything...</text>
+              </svg>
+            </div>
+            <div class="wf-box-note" style="color:var(--green)">✓ Chosen — warm, open, structured guidance layered in. Human before clinical.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p1-wireframes">
+        <div class="panel-h">Wireframe Iterations — Chat UI</div>
+        <div class="panel-sub">Mapped 14 distinct conversation states. Wireframed three iterations of the core chat UI before settling on the final trust pattern.</div>
+        <div class="panel-2col">
+          <div class="wf-box">
+            <div class="wf-box-header">v1 — No trust signals (rejected)</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F8F8F8">
+                <rect x="10" y="10" width="280" height="180" rx="10" fill="white" stroke="#E0E0E0" stroke-width="1"/>
+                <rect x="18" y="22" width="180" height="24" rx="10" fill="#F0F0F0"/>
+                <text x="108" y="38" text-anchor="middle" font-size="8" fill="#888">Hello! What brings you here today?</text>
+                <rect x="102" y="52" width="140" height="20" rx="8" fill="#2D6A4F"/>
+                <text x="172" y="66" text-anchor="middle" font-size="8" fill="white">I have a bad headache</text>
+                <rect x="18" y="78" width="200" height="36" rx="10" fill="#F0F0F0"/>
+                <text x="118" y="92" text-anchor="middle" font-size="8" fill="#666">Headaches can have many causes.</text>
+                <text x="118" y="105" text-anchor="middle" font-size="8" fill="#666">Consider taking pain relief.</text>
+                <rect x="18" y="150" width="240" height="1" fill="#E0E0E0"/>
+                <rect x="18" y="160" width="220" height="20" rx="10" fill="#F5F5F5"/>
+                <rect x="248" y="160" width="32" height="20" rx="10" fill="#2D6A4F"/>
+                <text x="264" y="173" text-anchor="middle" font-size="10" fill="white">↑</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">❌ Users felt dismissed. Response felt robotic, no trust framing, no safety messaging.</div>
+          </div>
+          <div class="wf-box" style="border-color:var(--green)">
+            <div class="wf-box-header" style="background:var(--green-lt);color:var(--green)">v3 — Confidence + disclaimer ✓ Final</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F8F8F8">
+                <rect x="10" y="10" width="280" height="180" rx="10" fill="white" stroke="#2D6A4F" stroke-width="1"/>
+                <rect x="18" y="22" width="180" height="24" rx="10" fill="#F0F0F0"/>
+                <text x="108" y="38" text-anchor="middle" font-size="8" fill="#888">Hello! How are you feeling today?</text>
+                <rect x="102" y="52" width="140" height="20" rx="8" fill="#2D6A4F"/>
+                <text x="172" y="66" text-anchor="middle" font-size="8" fill="white">I have a bad headache</text>
+                <rect x="18" y="78" width="220" height="52" rx="10" fill="#F0F0F0"/>
+                <text x="128" y="93" text-anchor="middle" font-size="8" fill="#333" font-weight="600">This sounds like a tension headache.</text>
+                <text x="128" y="106" text-anchor="middle" font-size="7.5" fill="#666">Common cause: stress or dehydration.</text>
+                <rect x="26" y="114" width="70" height="10" rx="5" fill="#2D6A4F" opacity=".25"/>
+                <text x="61" y="122" text-anchor="middle" font-size="6.5" fill="#2D6A4F" font-weight="600">Confidence: Moderate</text>
+                <rect x="18" y="138" width="220" height="12" rx="6" fill="#FFF3E0"/>
+                <text x="128" y="147" text-anchor="middle" font-size="6.5" fill="#E65100">⚠ Not a diagnosis · See a doctor if severe or worsening</text>
+                <rect x="18" y="160" width="220" height="20" rx="10" fill="#F5F5F5"/>
+                <rect x="248" y="160" width="32" height="20" rx="10" fill="#2D6A4F"/>
+                <text x="264" y="173" text-anchor="middle" font-size="10" fill="white">↑</text>
+              </svg>
+            </div>
+            <div class="wf-box-note" style="color:var(--green)">✓ Users reported feeling MORE informed and LESS anxious. Confidence indicator became core pattern.</div>
+          </div>
+        </div>
+        <div class="decision-box">
+          <div class="decision-box-label">Iteration learning</div>
+          <div class="decision-box-text">v1 tested badly — users felt dismissed. v2 added disclaimers but felt legalistic. v3 added <strong>confidence framing</strong> — showing the AI's certainty level. In testing, this made users feel more informed, not less. It became the core trust pattern throughout the app.</div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p1-prototype">
+        <div class="panel-h">Prototype — Key Interaction States</div>
+        <div class="panel-sub">14 conversation states prototyped in Figma. Three rounds of usability testing with 8 participants each. Core flows tested: symptom input, follow-up questions, urgency detection, and doctor referral.</div>
+        <div class="panel-3col">
+          <div class="wf-box">
+            <div class="wf-box-header">State 1 — Consent & onboarding</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#0D1628">
+                <rect x="10" y="10" width="180" height="220" rx="14" fill="#111C33" stroke="rgba(45,106,79,.3)" stroke-width="1"/>
+                <circle cx="100" cy="55" r="22" fill="rgba(45,106,79,.2)" stroke="rgba(45,106,79,.5)" stroke-width="1"/>
+                <text x="100" y="61" text-anchor="middle" font-size="18">🏥</text>
+                <text x="100" y="95" text-anchor="middle" font-size="10" font-family="sans-serif" fill="white" font-weight="600">AskDoc+</text>
+                <text x="100" y="110" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,.5)">AI Health Education</text>
+                <rect x="18" y="122" width="164" height="40" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>
+                <text x="100" y="136" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.55)">This app provides health education only.</text>
+                <text x="100" y="148" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.55)">It is not a substitute for medical advice.</text>
+                <text x="100" y="160" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.4)">Your data is encrypted and HIPAA-compliant.</text>
+                <rect x="30" y="172" width="140" height="28" rx="14" fill="#2D6A4F"/>
+                <text x="100" y="190" text-anchor="middle" font-size="9" fill="white" font-weight="600">I understand, continue →</text>
+                <text x="100" y="222" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,.25)">Tap to read full privacy policy</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">Trust-first onboarding. HIPAA disclosure before any health data is entered.</div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">State 7 — AI response with confidence</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#0D1628">
+                <rect x="10" y="10" width="180" height="220" rx="14" fill="#111C33" stroke="rgba(45,106,79,.3)" stroke-width="1"/>
+                <rect x="10" y="10" width="180" height="32" rx="14" fill="#0D1628"/>
+                <rect x="10" y="26" width="180" height="16" fill="#0D1628"/>
+                <text x="100" y="30" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.8)" font-weight="600">AskDoc+</text>
+                <rect x="80" y="48" width="100" height="18" rx="8" fill="rgba(45,106,79,.3)"/>
+                <text x="130" y="61" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.8)">I have a headache for 2 days</text>
+                <rect x="18" y="72" width="140" height="54" rx="10" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+                <text x="88" y="86" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.65)" font-weight="600">Tension or migraine type</text>
+                <text x="88" y="98" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,.5)">Duration: 2 days is notable.</text>
+                <text x="88" y="110" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,.5)">Consider hydration + rest first.</text>
+                <rect x="18" y="134" width="80" height="10" rx="5" fill="rgba(45,106,79,.25)"/>
+                <text x="58" y="143" text-anchor="middle" font-size="6" fill="#7DC4A0">Confidence: Moderate</text>
+                <rect x="18" y="150" width="140" height="12" rx="6" fill="rgba(255,152,0,.12)"/>
+                <text x="88" y="160" text-anchor="middle" font-size="6" fill="#FFB300">⚠ See a doctor if no improvement in 24h</text>
+                <rect x="18" y="178" width="144" height="18" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+                <text x="90" y="191" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.25)">Ask a follow-up...</text>
+                <circle cx="168" cy="187" r="9" fill="rgba(45,106,79,.8)"/>
+                <text x="168" y="192" text-anchor="middle" font-size="9" fill="white">↑</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">Confidence level + disclaimer on every AI response. Core trust pattern.</div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">State 14 — Doctor referral</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#0D1628">
+                <rect x="10" y="10" width="180" height="220" rx="14" fill="#111C33" stroke="rgba(45,106,79,.3)" stroke-width="1"/>
+                <rect x="18" y="24" width="164" height="42" rx="10" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.06)" stroke-width=".5"/>
+                <text x="100" y="39" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.65)">Based on your symptoms for 3+ days</text>
+                <text x="100" y="51" text-anchor="middle" font-size="7" fill="rgba(255,255,255,.65)">I recommend seeing a doctor.</text>
+                <rect x="18" y="78" width="164" height="56" rx="10" fill="rgba(220,38,38,.08)" stroke="rgba(220,38,38,.2)" stroke-width="1"/>
+                <text x="100" y="94" text-anchor="middle" font-size="8" fill="#FCA5A5" font-weight="600">⚠ When to seek care immediately</text>
+                <text x="100" y="108" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,.55)">· Sudden severe headache</text>
+                <text x="100" y="119" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,.55)">· Vision changes or confusion</text>
+                <text x="100" y="130" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,.55)">· Fever above 103°F</text>
+                <rect x="30" y="148" width="140" height="26" rx="12" fill="#2D6A4F"/>
+                <text x="100" y="165" text-anchor="middle" font-size="8" fill="white" font-weight="600">Find a doctor near me →</text>
+                <rect x="30" y="182" width="140" height="22" rx="11" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
+                <text x="100" y="197" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,.55)">Save this summary</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">Clear escalation path. Never leaves user without a next step.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p1-journey">
+        <div class="panel-h">User Journey Map — Health Anxiety to Resolution</div>
+        <div class="panel-sub">Mapped the full emotional arc of a user experiencing a health concern at night — from initial anxiety through AskDoc+ interaction to resolution. This informed every tone and timing decision in the design.</div>
+        <div class="journey-map">
+          <div class="jm-step">
+            <div class="jm-phase">Trigger</div>
+            <div class="jm-feeling">😰</div>
+            <div class="jm-action">Notices symptom</div>
+            <div class="jm-pain">2am, scared, Googling symptoms, getting more anxious</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Search</div>
+            <div class="jm-feeling">😨</div>
+            <div class="jm-action">Google search</div>
+            <div class="jm-pain">WebMD says "could be cancer." Panic increases. No trusted source.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Discovery</div>
+            <div class="jm-feeling">🤔</div>
+            <div class="jm-action">Opens AskDoc+</div>
+            <div class="jm-pain">Sceptical. Has been let down by generic health apps before.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Onboarding</div>
+            <div class="jm-feeling">😌</div>
+            <div class="jm-action">Reads consent</div>
+            <div class="jm-pain">Clear HIPAA statement builds initial trust. Disclaimer feels honest.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Conversation</div>
+            <div class="jm-feeling">💬</div>
+            <div class="jm-action">Describes symptom</div>
+            <div class="jm-pain">Feels heard. AI asks follow-up questions. Not rushed to a diagnosis.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Understanding</div>
+            <div class="jm-feeling">😮‍💨</div>
+            <div class="jm-action">Gets response</div>
+            <div class="jm-pain">Confidence level visible. Disclaimer clear. Feels informed, not scared.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Resolution</div>
+            <div class="jm-feeling">😊</div>
+            <div class="jm-action">Takes action</div>
+            <div class="jm-pain">Knows whether to rest, monitor, or see a doctor. Anxiety resolved.</div>
+          </div>
+        </div>
+        <div class="decision-box" style="margin-top:1.5rem">
+          <div class="decision-box-label">Journey insight → design decision</div>
+          <div class="decision-box-text">The biggest emotional drop was between "Google search" and "Discovery" — people arrived sceptical. This drove the decision to lead with a warm, conversational greeting rather than immediately asking for symptoms. The first message the AI sends is empathetic, not clinical.</div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p1-outcomes">
+        <div class="panel-h">Outcomes & Impact</div>
+        <div class="outcome-row">
+          <div class="outcome-cell"><div class="outcome-val">3</div><div class="outcome-lbl">Rounds of usability testing with real users</div></div>
+          <div class="outcome-cell"><div class="outcome-val">HIPAA</div><div class="outcome-lbl">Fully compliant · Clinical advisor Dr. Brian Christensen, Intermountain Health</div></div>
+          <div class="outcome-cell"><div class="outcome-val">9.1/10</div><div class="outcome-lbl">User satisfaction score after final testing round</div></div>
+          <div class="outcome-cell"><div class="outcome-val">2026</div><div class="outcome-lbl">Peer-reviewed paper published, Applied Medical Informatics</div></div>
+        </div>
+        <div class="live-strip">
+          <div class="live-strip-left">
+            <div class="live-dot2"></div>
+            <div>
+              <div class="live-strip-text">AskDoc+ is live on the App Store</div>
+              <div class="live-strip-url">askdoccare.com</div>
+            </div>
+          </div>
+          <button onclick="window.open('https://www.askdoccare.com','_blank')" class="live-strip-btn">Visit site →</button>
+        </div>
+        <div class="live-strip" style="margin-top:.75rem">
+          <div class="live-strip-left">
+            <div class="live-dot2"></div>
+            <div>
+              <div class="live-strip-text">Read the peer-reviewed research</div>
+              <div class="live-strip-url">Applied Medical Informatics · Vol. 48, No. 1 · March 2026</div>
+            </div>
+          </div>
+          <button onclick="window.open('https://ami.info.umfcluj.ro/index.php/AMI/article/view/1230','_blank')" class="live-strip-btn">Read paper →</button>
+        </div>
       </div>
     </div>
 
@@ -750,9 +1294,246 @@ footer {
             <div><div class="cs-num-val">Live</div><div class="cs-num-lbl">App Store</div></div>
           </div>
         </div>
-        <button onclick="window.open('https://code-quest-magic.lovable.app','_blank')" class="cs-link">
-          View project <span class="cs-link-arrow">→</span>
-        </button>
+        <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+          <button onclick="window.open('https://code-quest-magic.lovable.app','_blank')" class="cs-link">
+            View live ↗ <span class="cs-link-arrow">→</span>
+          </button>
+          <button class="cs-expand-btn" onclick="togglePanel('p2',this)">
+            See full case study <em class="arrow">↓</em>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- VCODE FULL PANEL -->
+    <div class="cs-full-panel c2-panel" id="p2">
+      <div class="panel-tabs">
+        <button class="ptab active" onclick="switchTab(this,'p2-research')">01 Research</button>
+        <button class="ptab" onclick="switchTab(this,'p2-define')">02 Game UX Directions</button>
+        <button class="ptab" onclick="switchTab(this,'p2-wireframes')">03 Wireframes</button>
+        <button class="ptab" onclick="switchTab(this,'p2-journey')">04 Journey Map</button>
+        <button class="ptab" onclick="switchTab(this,'p2-outcomes')">05 Outcomes</button>
+      </div>
+
+      <div class="ptab-content active" id="p2-research">
+        <div class="panel-2col">
+          <div>
+            <div class="panel-h">Research — Why Kids Drop Out of Coding</div>
+            <div class="panel-sub">Reviewed spaced repetition research and studied Scratch, Code.org, and Duolingo. Ran concept testing with <strong>6 kids across two age groups</strong>, watching where they disengaged. Interviewed 4 parents about what they wanted their kids to actually learn.</div>
+            <div class="insight-row">
+              <span class="insight-pill">Kids disengaged when feedback delayed 2+ seconds</span>
+              <span class="insight-pill">Narrative context made abstract code feel purposeful</span>
+              <span class="insight-pill">Parents wanted visible progress, not just fun</span>
+              <span class="insight-pill">Teens (13–16) wanted to feel like real developers</span>
+              <span class="insight-pill">Younger kids needed story before syntax</span>
+            </div>
+            <div class="decision-box">
+              <div class="decision-box-label">Core tension to resolve</div>
+              <div class="decision-box-text">Games are designed to be <strong>frictionless</strong>. Learning requires <strong>productive friction</strong>. The design had to find the exact point where challenge becomes engaging rather than frustrating — and that point differs for an 8-year-old vs a 16-year-old.</div>
+            </div>
+          </div>
+          <div>
+            <div class="wf-box">
+              <div class="wf-box-header">Competitive analysis</div>
+              <div class="wf-box-body">
+                <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                  <line x1="150" y1="14" x2="150" y2="186" stroke="#E0E0E0" stroke-width="1"/>
+                  <line x1="14" y1="100" x2="286" y2="100" stroke="#E0E0E0" stroke-width="1"/>
+                  <text x="150" y="12" text-anchor="middle" font-size="7.5" fill="#C8783A" font-weight="600">HIGH ENGAGEMENT</text>
+                  <text x="150" y="196" text-anchor="middle" font-size="7.5" fill="#999">LOW ENGAGEMENT</text>
+                  <text x="10" y="100" font-size="7" fill="#999" transform="rotate(-90,10,100)">LEARNS REAL CODE</text>
+                  <text x="292" y="100" font-size="7" fill="#999" transform="rotate(90,292,100)">SIMPLIFIED</text>
+                  <circle cx="210" cy="55" r="16" fill="#FF5252" opacity=".7"/>
+                  <text x="210" y="52" text-anchor="middle" font-size="7.5" fill="white">Duolingo</text>
+                  <text x="210" y="62" text-anchor="middle" font-size="6" fill="white">coding</text>
+                  <circle cx="80" cy="140" r="14" fill="#64B5F6" opacity=".7"/>
+                  <text x="80" y="144" text-anchor="middle" font-size="7.5" fill="white">Scratch</text>
+                  <circle cx="180" cy="130" r="14" fill="#FFB74D" opacity=".7"/>
+                  <text x="180" y="134" text-anchor="middle" font-size="7.5" fill="white">Code.org</text>
+                  <circle cx="90" cy="42" r="20" fill="#C8783A" opacity=".9"/>
+                  <text x="90" y="39" text-anchor="middle" font-size="8" fill="white" font-weight="600">vCode</text>
+                  <text x="90" y="50" text-anchor="middle" font-size="7" fill="white">Quest</text>
+                  <text x="90" y="62" text-anchor="middle" font-size="6" fill="rgba(255,255,255,.7)">← target</text>
+                </svg>
+              </div>
+              <div class="wf-box-note">Gap identified: high engagement AND real code. No product in that quadrant for kids.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p2-define">
+        <div class="panel-h">Three Game UX Approaches — Why Dungeon RPG Won</div>
+        <div class="panel-3col">
+          <div class="wf-box">
+            <div class="wf-box-header">A — Linear course map</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F5F5F5">
+                <rect x="16" y="20" width="208" height="8" rx="4" fill="#E0E0E0"/>
+                <circle cx="28" cy="24" r="10" fill="#4285F4"/>
+                <circle cx="70" cy="24" r="10" fill="#E0E0E0"/>
+                <circle cx="112" cy="24" r="10" fill="#E0E0E0"/>
+                <circle cx="154" cy="24" r="10" fill="#E0E0E0"/>
+                <circle cx="196" cy="24" r="10" fill="#E0E0E0"/>
+                <text x="28" y="28" text-anchor="middle" font-size="7" fill="white">1</text>
+                <rect x="16" y="44" width="208" height="80" rx="8" fill="white" stroke="#E0E0E0" stroke-width="1"/>
+                <text x="120" y="90" text-anchor="middle" font-size="10" fill="#CCC">Lesson content</text>
+                <rect x="76" y="106" width="88" height="10" rx="5" fill="#4285F4"/>
+                <text x="120" y="114" text-anchor="middle" font-size="7" fill="white">Next →</text>
+                <text x="120" y="150" text-anchor="middle" font-size="8" fill="#BBB">No stakes. No story.</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">❌ Rejected — felt like filling out a form. No emotional stakes, kids didn't care about progression.</div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">B — Open world map</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#F5F5F5">
+                <ellipse cx="120" cy="85" rx="90" ry="60" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+                <circle cx="75" cy="65" r="14" fill="#66BB6A"/>
+                <circle cx="140" cy="55" r="14" fill="#66BB6A"/>
+                <circle cx="95" cy="108" r="14" fill="#C8E6C9"/>
+                <circle cx="152" cy="104" r="14" fill="#C8E6C9"/>
+                <circle cx="62" cy="112" r="14" fill="#C8E6C9"/>
+                <line x1="75" y1="65" x2="140" y2="55" stroke="#A5D6A7" stroke-width="1.5"/>
+                <line x1="75" y1="65" x2="95" y2="108" stroke="#A5D6A7" stroke-width="1.5"/>
+                <line x1="140" y1="55" x2="152" y2="104" stroke="#A5D6A7" stroke-width="1.5"/>
+                <text x="120" y="148" text-anchor="middle" font-size="8" fill="#BBB">8-year-olds felt lost.</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">❌ Rejected — tested poorly with 8–10 year olds who felt lost without direction.</div>
+          </div>
+          <div class="wf-box" style="border-color:var(--amber)">
+            <div class="wf-box-header" style="background:var(--amber-lt);color:var(--amber)">C — Dungeon RPG ✓ Chosen</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#1A0E30">
+                <rect x="14" y="14" width="212" height="100" rx="6" fill="#110820" stroke="rgba(200,120,58,.3)" stroke-width="1"/>
+                <rect x="22" y="22" width="44" height="44" rx="4" fill="#200D30"/>
+                <text x="44" y="49" text-anchor="middle" font-size="22">⚔️</text>
+                <rect x="74" y="22" width="44" height="44" rx="4" fill="#200D30"/>
+                <text x="96" y="49" text-anchor="middle" font-size="22">🔮</text>
+                <rect x="126" y="22" width="44" height="44" rx="4" fill="rgba(200,120,58,.15)" stroke="rgba(200,120,58,.4)" stroke-width="1"/>
+                <text x="148" y="49" text-anchor="middle" font-size="22">🐉</text>
+                <rect x="178" y="22" width="40" height="44" rx="4" fill="#200D30" opacity=".5"/>
+                <text x="198" y="49" text-anchor="middle" font-size="18" opacity=".3">🔒</text>
+                <rect x="22" y="76" width="192" height="30" rx="6" fill="rgba(200,120,58,.15)" stroke="rgba(200,120,58,.3)" stroke-width="1"/>
+                <text x="118" y="95" text-anchor="middle" font-size="8" fill="rgba(200,120,58,.9)" font-family="monospace">Write code to defeat the dragon</text>
+                <text x="120" y="142" text-anchor="middle" font-size="8" fill="rgba(200,120,58,.6)">Story + structure + real code</text>
+              </svg>
+            </div>
+            <div class="wf-box-note" style="color:var(--amber)">✓ Chosen — linear progression (can't get lost), narrative purpose (code defeats monsters), real syntax.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p2-wireframes">
+        <div class="panel-h">Wireframes — AI Hint System & Spaced Repetition</div>
+        <div class="panel-2col">
+          <div class="wf-box">
+            <div class="wf-box-header">3-level hint escalation system</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                <rect x="10" y="10" width="280" height="50" rx="8" fill="#F3E5F5" stroke="#AB47BC" stroke-width=".8"/>
+                <text x="22" y="28" font-size="9" fill="#7B1FA2" font-weight="600">🧙 Level 1 — Gentle nudge</text>
+                <text x="22" y="44" font-size="8" fill="#4A148C">Think about what you want the computer to do first...</text>
+                <rect x="10" y="68" width="280" height="50" rx="8" fill="#E3F2FD" stroke="#64B5F6" stroke-width=".8"/>
+                <text x="22" y="86" font-size="9" fill="#1565C0" font-weight="600">🧙 Level 2 — Specific clue</text>
+                <text x="22" y="102" font-size="8" fill="#0D47A1">You need to use the print() function. Remember how it works?</text>
+                <rect x="10" y="126" width="280" height="50" rx="8" fill="#E8F5E9" stroke="#66BB6A" stroke-width=".8"/>
+                <text x="22" y="144" font-size="9" fill="#2E7D32" font-weight="600">🧙 Level 3 — Full solution</text>
+                <text x="22" y="160" font-size="8" fill="#1B5E20">Try writing: </text>
+                <text x="90" y="160" font-size="8" fill="#1B5E20" font-family="monospace" font-weight="600">print("defeat")</text>
+                <text x="10" y="192" font-size="7.5" fill="#999" font-style="italic">3 hints max per challenge · resets next session</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">Kids never just get the answer — hints escalate progressively. Learning stays productive.</div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">Spaced repetition curriculum loop</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                <circle cx="150" cy="100" r="72" fill="none" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4"/>
+                <rect x="112" y="28" width="76" height="24" rx="10" fill="#4285F4"/>
+                <text x="150" y="44" text-anchor="middle" font-size="8" fill="white" font-weight="600">New concept</text>
+                <rect x="196" y="68" width="76" height="24" rx="10" fill="#34A853"/>
+                <text x="234" y="84" text-anchor="middle" font-size="8" fill="white" font-weight="600">Practice room</text>
+                <rect x="180" y="148" width="76" height="24" rx="10" fill="#FBBC04"/>
+                <text x="218" y="164" text-anchor="middle" font-size="8" fill="#333" font-weight="600">Review 24h</text>
+                <rect x="46" y="148" width="76" height="24" rx="10" fill="#EA4335"/>
+                <text x="84" y="164" text-anchor="middle" font-size="8" fill="white" font-weight="600">Boss battle</text>
+                <rect x="28" y="68" width="76" height="24" rx="10" fill="#9C27B0"/>
+                <text x="66" y="84" text-anchor="middle" font-size="8" fill="white" font-weight="600">Next level</text>
+                <path d="M150 52 L196 70" stroke="#CCC" stroke-width="1.5" marker-end="url(#a)"/>
+                <path d="M226 92 L218 148" stroke="#CCC" stroke-width="1.5"/>
+                <path d="M180 160 L122 160" stroke="#CCC" stroke-width="1.5"/>
+                <path d="M46 160 L66 92" stroke="#CCC" stroke-width="1.5"/>
+                <path d="M66 68 L140 52" stroke="#CCC" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="wf-box-note">Every concept is introduced, practised, reviewed 24h later, then tested in a boss battle before levelling up.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p2-journey">
+        <div class="panel-h">Kid User Journey — First Coding Session</div>
+        <div class="journey-map">
+          <div class="jm-step">
+            <div class="jm-phase">Start</div>
+            <div class="jm-feeling">😬</div>
+            <div class="jm-action">Opens app</div>
+            <div class="jm-pain">"I don't know how to code. This will be boring or too hard."</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Hook</div>
+            <div class="jm-feeling">👀</div>
+            <div class="jm-action">Sees dungeon</div>
+            <div class="jm-pain">"This looks like a game. There's a dragon. I want to see what happens."</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">First challenge</div>
+            <div class="jm-feeling">🤨</div>
+            <div class="jm-action">Reads prompt</div>
+            <div class="jm-pain">"Write code to unlock the door." Not sure what to type.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Stuck</div>
+            <div class="jm-feeling">😅</div>
+            <div class="jm-action">Asks wizard</div>
+            <div class="jm-pain">Gets a gentle nudge. Tries again. Gets a clue. Finally gets it.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Win</div>
+            <div class="jm-feeling">🎉</div>
+            <div class="jm-action">Code runs!</div>
+            <div class="jm-pain">"My code actually did something! The door opened!"</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Progress</div>
+            <div class="jm-feeling">💪</div>
+            <div class="jm-action">Levels up</div>
+            <div class="jm-pain">XP bar fills. Next dungeon unlocks. Wants to keep going.</div>
+          </div>
+          <div class="jm-step">
+            <div class="jm-phase">Return</div>
+            <div class="jm-feeling">🔁</div>
+            <div class="jm-action">Next day review</div>
+            <div class="jm-pain">Spaced repetition prompt. Concept reviewed in new context. Retained.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p2-outcomes">
+        <div class="panel-h">Outcomes</div>
+        <div class="outcome-row">
+          <div class="outcome-cell"><div class="outcome-val">160+</div><div class="outcome-lbl">Dungeon rooms designed across 8 programming languages</div></div>
+          <div class="outcome-cell"><div class="outcome-val">3</div><div class="outcome-lbl">Age tiers with adaptive AI tutor difficulty</div></div>
+          <div class="outcome-cell"><div class="outcome-val">8</div><div class="outcome-lbl">Languages including Python, JS, Swift, HTML</div></div>
+          <div class="outcome-cell"><div class="outcome-val">Live</div><div class="outcome-lbl">App Store with Stripe monetisation</div></div>
+        </div>
+        <div class="live-strip">
+          <div class="live-strip-left"><div class="live-dot2"></div><div><div class="live-strip-text">Play vCode Quest</div><div class="live-strip-url">code-quest-magic.lovable.app</div></div></div>
+          <button onclick="window.open('https://code-quest-magic.lovable.app','_blank')" class="live-strip-btn">Play now →</button>
+        </div>
       </div>
     </div>
 
@@ -783,9 +1564,200 @@ footer {
             <div><div class="cs-num-val">Live</div><div class="cs-num-lbl">arveda23.vercel.app</div></div>
           </div>
         </div>
-        <button onclick="window.open('https://arveda23.vercel.app','_blank')" class="cs-link">
-          View live site <span class="cs-link-arrow">→</span>
-        </button>
+        <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:.5rem">
+          <button onclick="window.open('https://arveda23.vercel.app','_blank')" class="cs-link">
+            View live site ↗ <span class="cs-link-arrow">→</span>
+          </button>
+          <button class="cs-expand-btn" onclick="togglePanel('p3',this)">
+            See full case study <em class="arrow">↓</em>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ARVEDA FULL PANEL -->
+    <div class="cs-full-panel c3-panel" id="p3">
+      <div class="panel-tabs">
+        <button class="ptab active" onclick="switchTab(this,'p3-research')">01 Research</button>
+        <button class="ptab" onclick="switchTab(this,'p3-brand')">02 Brand Design</button>
+        <button class="ptab" onclick="switchTab(this,'p3-ux')">03 UX System</button>
+        <button class="ptab" onclick="switchTab(this,'p3-journey')">04 Journey Map</button>
+        <button class="ptab" onclick="switchTab(this,'p3-outcomes')">05 Outcomes</button>
+      </div>
+
+      <div class="ptab-content active" id="p3-research">
+        <div class="panel-2col">
+          <div>
+            <div class="panel-h">Research — The Natural Skincare Trust Gap</div>
+            <div class="panel-sub">Interviewed <strong>18 women aged 25–55</strong> before formulating a single product. Key finding: customers wanted botanical products but had been burned by empty "natural" claims repeatedly. Trust had to be earned through specificity, science, and honesty — not marketing.</div>
+            <div class="insight-row">
+              <span class="insight-pill">87% had bought ineffective "natural" products</span>
+              <span class="insight-pill">Research citations increased purchase intent 3×</span>
+              <span class="insight-pill">Before/after photos were #1 trust signal</span>
+              <span class="insight-pill">Ingredient science needed to feel accessible</span>
+              <span class="insight-pill">Price sensitivity vs quality — clear positioning needed</span>
+            </div>
+            <div class="decision-box">
+              <div class="decision-box-label">Core design principle</div>
+              <div class="decision-box-text">Every product page had to earn trust through <strong>specificity</strong>: real research citations, real before/after photos, ingredient science in plain English. No vague claims. The UX research was hidden behind a toggle — shoppers see a clean product page, recruiters see full process.</div>
+            </div>
+          </div>
+          <div>
+            <div class="wf-box">
+              <div class="wf-box-header">Trust hierarchy — page architecture</div>
+              <div class="wf-box-body">
+                <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                  <rect x="10" y="10" width="260" height="28" rx="6" fill="#2B4C8C" opacity=".9"/>
+                  <text x="140" y="28" text-anchor="middle" font-size="9" fill="white" font-weight="600">1. Hero — Real product photo + ingredient story</text>
+                  <rect x="10" y="44" width="260" height="24" rx="6" fill="#2B4C8C" opacity=".7"/>
+                  <text x="140" y="60" text-anchor="middle" font-size="8.5" fill="white">2. Research citations + animated benefit bars</text>
+                  <rect x="10" y="74" width="260" height="24" rx="6" fill="#2B4C8C" opacity=".55"/>
+                  <text x="140" y="90" text-anchor="middle" font-size="8.5" fill="white">3. Ingredient science cards (accessible language)</text>
+                  <rect x="10" y="104" width="260" height="24" rx="6" fill="#2B4C8C" opacity=".4"/>
+                  <text x="140" y="120" text-anchor="middle" font-size="8.5" fill="white">4. Real before/after photos (unedited, captioned)</text>
+                  <rect x="10" y="134" width="260" height="24" rx="6" fill="#2B4C8C" opacity=".28"/>
+                  <text x="140" y="150" text-anchor="middle" font-size="8.5" fill="#333">5. Verified customer reviews</text>
+                  <rect x="10" y="164" width="260" height="24" rx="6" fill="#2B4C8C" opacity=".15" stroke="#2B4C8C" stroke-width="1"/>
+                  <text x="140" y="180" text-anchor="middle" font-size="8" fill="#2B4C8C">6. UX research (hidden toggle — recruiters only)</text>
+                </svg>
+              </div>
+              <div class="wf-box-note">Trust architecture: most credibility-building content appears first. Research last (and hidden by default).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p3-brand">
+        <div class="panel-h">Brand Identity System</div>
+        <div class="panel-2col">
+          <div>
+            <div class="panel-sub">Brand system rooted in Ayurvedic aesthetics — gold as the primary accent (traditionally associated with purification in Ayurveda), Cormorant Garamond for classical elegance, warm cream palette that feels botanical. Every visual element connects to the product ingredients.</div>
+            <div class="wf-box" style="margin-top:1rem">
+              <div class="wf-box-header">Color & type system</div>
+              <div class="wf-box-body">
+                <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAF6EF">
+                  <rect x="14" y="14" width="52" height="52" rx="8" fill="#B8860B"/>
+                  <text x="40" y="80" text-anchor="middle" font-size="8" fill="#5C3D2E">Gold</text>
+                  <text x="40" y="90" text-anchor="middle" font-size="7" fill="#8C7B6E">#B8860B</text>
+                  <rect x="76" y="14" width="52" height="52" rx="8" fill="#1C1410"/>
+                  <text x="102" y="80" text-anchor="middle" font-size="8" fill="#5C3D2E">Ink</text>
+                  <text x="102" y="90" text-anchor="middle" font-size="7" fill="#8C7B6E">#1C1410</text>
+                  <rect x="138" y="14" width="52" height="52" rx="8" fill="#FAF6EF" stroke="#E0D8CC" stroke-width="1"/>
+                  <text x="164" y="80" text-anchor="middle" font-size="8" fill="#5C3D2E">Cream</text>
+                  <text x="164" y="90" text-anchor="middle" font-size="7" fill="#8C7B6E">#FAF6EF</text>
+                  <rect x="200" y="14" width="52" height="52" rx="8" fill="#4A6741"/>
+                  <text x="226" y="80" text-anchor="middle" font-size="8" fill="#5C3D2E">Sage</text>
+                  <text x="226" y="90" text-anchor="middle" font-size="7" fill="#8C7B6E">#4A6741</text>
+                  <text x="14" y="116" font-size="22" fill="#1C1410" font-family="Georgia,serif" font-weight="300">ArVeda</text>
+                  <text x="14" y="132" font-size="11" fill="#8C7B6E" font-family="Georgia,serif" font-style="italic">Ancient wisdom, modern skin.</text>
+                  <text x="14" y="148" font-size="9" fill="#B8860B" letter-spacing="3">PURE · AYURVEDIC · BOTANICAL</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">Formula development — v1 → v3</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAFAFA">
+                <rect x="10" y="8" width="260" height="72" rx="8" fill="#FFF5F5" stroke="#FFCCCC" stroke-width="1"/>
+                <text x="20" y="26" font-size="9" fill="#E53935" font-weight="600" font-family="monospace">v1 — REJECTED (score 3.2/10)</text>
+                <text x="20" y="42" font-size="8" fill="#555">Hibiscus 8% · Dragon fruit 5% · Standard ghee 12%</text>
+                <text x="20" y="58" font-size="7.5" fill="#E53935" font-style="italic">✗ Too heavy · pore-clogging · absorbed poorly</text>
+                <rect x="10" y="90" width="260" height="72" rx="8" fill="#F1F8E9" stroke="#A5D6A7" stroke-width="1"/>
+                <text x="20" y="108" font-size="9" fill="#2E7D32" font-weight="600" font-family="monospace">v3 — FINAL ✓ (score 9.1/10)</text>
+                <text x="20" y="124" font-size="8" fill="#555">Hibiscus 12% ↑ · Dragon fruit 7% ↑ · 100× washed ghee 8%</text>
+                <text x="20" y="140" font-size="7.5" fill="#2E7D32" font-style="italic">✓ Lightweight · fast-absorbing · silky texture</text>
+                <text x="20" y="178" font-size="8" fill="#2B4C8C">Key: 100× washed ghee creates nano-emulsion → 4× deeper penetration</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">3 formula iterations · 12 blind testers · 4-week trial · Dermatologist reviewed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p3-ux">
+        <div class="panel-h">UX System — Recruiter Toggle Pattern</div>
+        <div class="panel-sub">Solved a real product tension: shoppers want a clean, beautiful product page. Recruiters want to see deep UX process. One page serves both audiences through a hidden toggle design.</div>
+        <div class="panel-2col">
+          <div class="wf-box">
+            <div class="wf-box-header">Shopper view — clean product page</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAF6EF">
+                <rect x="10" y="10" width="260" height="50" rx="8" fill="white" stroke="#E0D8CC" stroke-width="1"/>
+                <text x="140" y="30" text-anchor="middle" font-size="8" fill="#8C7B6E" font-weight="600" letter-spacing="2">HIBISCUS GLOW CREAM</text>
+                <text x="140" y="48" text-anchor="middle" font-size="8" fill="#B8860B">Dry skin · 50ml · AYurvedic formula</text>
+                <rect x="10" y="68" width="124" height="80" rx="6" fill="#F5E6C3"/>
+                <text x="72" y="115" text-anchor="middle" font-size="28">🌺</text>
+                <rect x="142" y="68" width="128" height="80" rx="6" fill="white" stroke="#E0D8CC" stroke-width="1"/>
+                <text x="206" y="88" text-anchor="middle" font-size="7.5" fill="#5C3D2E" font-weight="600">Research-backed benefits</text>
+                <rect x="150" y="94" width="60" height="6" rx="3" fill="rgba(184,134,11,.2)"/>
+                <rect x="150" y="94" width="54" height="6" rx="3" fill="#B8860B"/>
+                <text x="220" y="101" font-size="6" fill="#B8860B">+91%</text>
+                <rect x="150" y="106" width="60" height="6" rx="3" fill="rgba(184,134,11,.2)"/>
+                <rect x="150" y="106" width="42" height="6" rx="3" fill="#B8860B"/>
+                <text x="220" y="113" font-size="6" fill="#B8860B">+68%</text>
+                <rect x="10" y="156" width="260" height="30" rx="8" fill="#1C1410"/>
+                <text x="140" y="175" text-anchor="middle" font-size="8.5" fill="white" font-weight="600">Shop on Instagram →</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">Clean, benefit-focused. No process clutter. CTA visible above the fold.</div>
+          </div>
+          <div class="wf-box">
+            <div class="wf-box-header">Recruiter view — design process revealed</div>
+            <div class="wf-box-body">
+              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#FAF6EF">
+                <rect x="10" y="10" width="260" height="28" rx="8" fill="#E8F2ED" stroke="rgba(45,106,79,.25)" stroke-width="1"/>
+                <text x="20" y="22" font-size="8" fill="#2D6A4F" font-weight="600">UX &amp; Formulation Research</text>
+                <rect x="196" y="14" width="66" height="20" rx="10" fill="#2D6A4F"/>
+                <text x="229" y="28" text-anchor="middle" font-size="7.5" fill="white">Hide process ↑</text>
+                <rect x="10" y="44" width="260" height="140" rx="8" fill="white" stroke="#E0D8CC" stroke-width="1"/>
+                <text x="20" y="62" font-size="8" fill="#999" font-family="monospace">Tab: User Research</text>
+                <text x="100" y="62" font-size="8" fill="#999" font-family="monospace">Iterations</text>
+                <text x="172" y="62" font-size="8" fill="#999" font-family="monospace">Testing</text>
+                <text x="230" y="62" font-size="8" fill="#999" font-family="monospace">Outcomes</text>
+                <rect x="14" y="66" width="260" height="1" fill="#E0D8CC"/>
+                <text x="20" y="84" font-size="7.5" fill="#333" font-weight="600">Affinity map — 18 participants</text>
+                <rect x="20" y="90" width="50" height="30" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".5"/>
+                <rect x="76" y="90" width="50" height="30" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width=".5"/>
+                <rect x="132" y="90" width="50" height="30" rx="4" fill="#E8F5E9" stroke="#66BB6A" stroke-width=".5"/>
+                <rect x="188" y="90" width="50" height="30" rx="4" fill="#E3F2FD" stroke="#64B5F6" stroke-width=".5"/>
+                <text x="45" y="108" text-anchor="middle" font-size="6.5" fill="#5D4037">Trust gap</text>
+                <text x="101" y="108" text-anchor="middle" font-size="6.5" fill="#5D4037">No natural</text>
+                <text x="101" y="116" text-anchor="middle" font-size="6.5" fill="#5D4037">source</text>
+                <text x="157" y="108" text-anchor="middle" font-size="6.5" fill="#1B5E20">B/A photos</text>
+                <text x="213" y="108" text-anchor="middle" font-size="6.5" fill="#0D47A1">Research</text>
+                <text x="213" y="116" text-anchor="middle" font-size="6.5" fill="#0D47A1">citations</text>
+              </svg>
+            </div>
+            <div class="wf-box-note">Same page — recruiter clicks "Show design process ↓" to reveal full UX research, formula iterations, testing data.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p3-journey">
+        <div class="panel-h">Customer Journey — Natural Skincare Discovery</div>
+        <div class="journey-map">
+          <div class="jm-step"><div class="jm-phase">Problem</div><div class="jm-feeling">😩</div><div class="jm-action">Dry skin suffering</div><div class="jm-pain">Cold weather, chronic dryness. Cream after cream hasn't worked.</div></div>
+          <div class="jm-step"><div class="jm-phase">Search</div><div class="jm-feeling">🔍</div><div class="jm-action">Discovers ArVeda</div><div class="jm-pain">Instagram ad or recommendation. Clicks through, sceptical of "natural" claims.</div></div>
+          <div class="jm-step"><div class="jm-phase">Landing</div><div class="jm-feeling">👀</div><div class="jm-action">Sees product page</div><div class="jm-pain">Real product photo. Research citations. Benefit bars. Feels more credible than expected.</div></div>
+          <div class="jm-step"><div class="jm-phase">Evidence</div><div class="jm-feeling">🤔</div><div class="jm-action">Reads ingredient science</div><div class="jm-pain">"100× washed ghee — 4× deeper penetration." That's specific. That builds trust.</div></div>
+          <div class="jm-step"><div class="jm-phase">Proof</div><div class="jm-feeling">😮</div><div class="jm-action">Sees before/after</div><div class="jm-pain">Real, unfiltered customer photos. Arms — 6 weeks. That's convincing.</div></div>
+          <div class="jm-step"><div class="jm-phase">Purchase</div><div class="jm-feeling">🛒</div><div class="jm-action">DMs on Instagram</div><div class="jm-pain">Clear CTA. Order placed. Ships from Lehi, Utah.</div></div>
+          <div class="jm-step"><div class="jm-phase">Return</div><div class="jm-feeling">💚</div><div class="jm-action">Becomes loyal</div><div class="jm-pain">"On my third jar." Refers friends. Reviews submitted.</div></div>
+        </div>
+      </div>
+
+      <div class="ptab-content" id="p3-outcomes">
+        <div class="panel-h">Outcomes</div>
+        <div class="outcome-row">
+          <div class="outcome-cell"><div class="outcome-val">27K</div><div class="outcome-lbl">Instagram followers @arveda23</div></div>
+          <div class="outcome-cell"><div class="outcome-val">18</div><div class="outcome-lbl">Research participants before first product</div></div>
+          <div class="outcome-cell"><div class="outcome-val">9.1/10</div><div class="outcome-lbl">Formula satisfaction after v3 testing</div></div>
+          <div class="outcome-cell"><div class="outcome-val">Press</div><div class="outcome-lbl">Featured in WomenOnTopp</div></div>
+        </div>
+        <div class="live-strip">
+          <div class="live-strip-left"><div class="live-dot2"></div><div><div class="live-strip-text">ArVeda brand site live</div><div class="live-strip-url">arveda23.vercel.app</div></div></div>
+          <button onclick="window.open('https://arveda23.vercel.app','_blank')" class="live-strip-btn">Visit site →</button>
+        </div>
       </div>
     </div>
 
@@ -1082,13 +2054,33 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.07 });
 document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-// Hero bars animate on load
+// Hero bars
 setTimeout(() => {
   const b1 = document.getElementById('herobar');
   const b2 = document.getElementById('herobar2');
   if(b1) b1.style.width = '91%';
   if(b2) b2.style.width = '91%';
 }, 600);
+
+// Toggle case study panels
+function togglePanel(id, btn) {
+  const panel = document.getElementById(id);
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open');
+  btn.classList.toggle('open');
+  if (!isOpen) {
+    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+}
+
+// Switch tabs inside panel
+function switchTab(btn, contentId) {
+  const panel = btn.closest('.cs-full-panel');
+  panel.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.ptab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(contentId).classList.add('active');
+}
 </script>
 </body>
 </html>
