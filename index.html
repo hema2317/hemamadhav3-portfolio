@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hema Madhav — Product Designer, Creative Strategist & Published Author</title>
+<title>Hema Madhav — Product Designer & Published Author</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,6 @@
   --dark: #0a0a0a;
   --light: #fafafa;
   --accent: #d4a574;
-  --secondary: #8b7355;
   --muted: #999;
   --border: #e5e5e5;
 }
@@ -32,7 +31,6 @@ body {
   background: var(--light);
   color: var(--dark);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 /* ──── NAVIGATION ──── */
@@ -113,7 +111,7 @@ nav {
 
 .hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(52px, 5vw, 72px);
+  font-size: clamp(48px, 5vw, 68px);
   line-height: 1.15;
   margin-bottom: 2rem;
   letter-spacing: -0.5px;
@@ -123,17 +121,8 @@ nav {
   color: var(--accent);
 }
 
-.hero-subtitle {
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
 .hero-content p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
   color: var(--muted);
   max-width: 450px;
@@ -150,7 +139,7 @@ nav {
 .btn-primary {
   background: var(--dark);
   color: var(--light);
-  padding: 14px 36px;
+  padding: 14px 32px;
   border: none;
   border-radius: 2px;
   font-size: 12px;
@@ -159,7 +148,6 @@ nav {
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-family: 'Outfit', sans-serif;
 }
 
 .btn-primary:hover {
@@ -171,7 +159,7 @@ nav {
   background: transparent;
   color: var(--dark);
   border: 1px solid var(--dark);
-  padding: 12px 34px;
+  padding: 12px 32px;
   border-radius: 2px;
   font-size: 12px;
   font-weight: 600;
@@ -179,19 +167,11 @@ nav {
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-family: 'Outfit', sans-serif;
 }
 
 .btn-secondary:hover {
   background: var(--dark);
   color: var(--light);
-}
-
-.hero-image {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-image img {
@@ -203,9 +183,9 @@ nav {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* ──── PROJECTS SECTION ──── */
+/* ──── PROJECTS ──── */
 .projects {
-  padding: 120px 3rem;
+  padding: 100px 3rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -217,7 +197,7 @@ nav {
 
 .section-header h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(36px, 4vw, 52px);
   margin-bottom: 1rem;
   letter-spacing: -0.5px;
 }
@@ -233,7 +213,7 @@ nav {
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 120px;
+  gap: 80px;
 }
 
 .project {
@@ -241,7 +221,7 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  padding: 60px 0;
+  padding-bottom: 80px;
   border-bottom: 1px solid var(--border);
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
@@ -273,7 +253,6 @@ nav {
 }
 
 .project-image {
-  position: relative;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -286,13 +265,13 @@ nav {
 }
 
 .project:hover .project-image img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .project-content h3 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 3vw, 42px);
-  margin-bottom: 1rem;
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 0.8rem;
   letter-spacing: -0.3px;
 }
 
@@ -303,62 +282,32 @@ nav {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
   border-bottom: 2px solid var(--accent);
 }
 
 .project-desc {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   font-weight: 300;
-}
-
-.project-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 2.5rem 0;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 500;
 }
 
 .project-link {
   display: inline-block;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--dark);
-  padding: 12px 24px;
+  padding: 11px 22px;
   border: 1px solid var(--dark);
   border-radius: 2px;
   transition: all 0.3s ease;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
 }
 
 .project-link:hover {
@@ -366,36 +315,36 @@ nav {
   color: var(--light);
 }
 
-/* ──── PRESS & FEATURED ──── */
-.press {
+/* ──── FEATURED ──── */
+.featured {
   background: linear-gradient(135deg, #f0ebe5 0%, #fafafa 100%);
   padding: 100px 3rem;
 }
 
-.press-container {
+.featured-container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.press-header {
+.featured-header {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.press-header h2 {
+.featured-header h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 48px);
   margin-bottom: 1rem;
   letter-spacing: -0.5px;
 }
 
-.press-grid {
+.featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-.press-item {
+.featured-item {
   background: var(--light);
   padding: 2rem;
   border-radius: 4px;
@@ -403,11 +352,11 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.press-item:hover {
+.featured-item:hover {
   transform: translateY(-4px);
 }
 
-.press-item h4 {
+.featured-item h4 {
   font-size: 14px;
   font-weight: 600;
   color: var(--accent);
@@ -416,14 +365,14 @@ nav {
   margin-bottom: 0.8rem;
 }
 
-.press-item p {
-  font-size: 15px;
+.featured-item p {
+  font-size: 14px;
   color: var(--dark);
   line-height: 1.7;
   margin-bottom: 1.2rem;
 }
 
-.press-item a {
+.featured-item a {
   display: inline-block;
   font-size: 12px;
   color: var(--accent);
@@ -433,7 +382,7 @@ nav {
   transition: opacity 0.3s ease;
 }
 
-.press-item a:hover {
+.featured-item a:hover {
   opacity: 0.7;
 }
 
@@ -451,21 +400,16 @@ nav {
 
 .writing-header h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 48px);
   margin-bottom: 0.5rem;
   letter-spacing: -0.5px;
 }
 
-.writing-header p {
-  font-size: 14px;
-  color: var(--muted);
-  font-weight: 500;
-}
-
 .articles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .article {
@@ -477,12 +421,11 @@ nav {
 }
 
 .article:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .article-content {
-  padding: 2rem;
+  padding: 1.8rem;
 }
 
 .article-tag {
@@ -496,22 +439,22 @@ nav {
 
 .article-title {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  margin-bottom: 1rem;
+  font-size: 16px;
+  margin-bottom: 0.8rem;
   line-height: 1.4;
   color: var(--dark);
 }
 
 .article-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   line-height: 1.6;
 }
 
 .article-link {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
@@ -521,6 +464,10 @@ nav {
 
 .article-link:hover {
   opacity: 0.7;
+}
+
+.writing-cta {
+  text-align: center;
 }
 
 /* ──── ABOUT ──── */
@@ -541,29 +488,29 @@ nav {
 .about-content h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(36px, 4vw, 48px);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   letter-spacing: -0.5px;
 }
 
 .about-content p {
-  font-size: 15px;
-  line-height: 1.9;
+  font-size: 14px;
+  line-height: 1.8;
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   font-weight: 300;
 }
 
 .about-list {
-  margin-top: 2rem;
-  padding-top: 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .about-list li {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--dark);
-  margin-bottom: 1rem;
-  padding-left: 2rem;
+  margin-bottom: 0.8rem;
+  padding-left: 1.8rem;
   position: relative;
   font-weight: 500;
 }
@@ -585,22 +532,22 @@ nav {
 .contact {
   padding: 100px 3rem;
   text-align: center;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .contact h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 5vw, 56px);
-  margin-bottom: 2rem;
+  font-size: clamp(36px, 5vw, 52px);
+  margin-bottom: 1.5rem;
   letter-spacing: -0.5px;
 }
 
 .contact p {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--muted);
-  margin-bottom: 3rem;
-  max-width: 600px;
+  margin-bottom: 2.5rem;
+  max-width: 550px;
   margin-left: auto;
   margin-right: auto;
   font-weight: 300;
@@ -610,7 +557,7 @@ nav {
 .contact-buttons {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
 
@@ -618,23 +565,18 @@ nav {
 footer {
   background: var(--dark);
   color: var(--light);
-  padding: 60px 3rem;
+  padding: 50px 3rem;
   text-align: center;
 }
 
 footer p {
-  font-size: 13px;
+  font-size: 12px;
   opacity: 0.7;
 }
 
 footer a {
   color: var(--accent);
   text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-footer a:hover {
-  opacity: 0.7;
 }
 
 /* ──── RESPONSIVE ──── */
@@ -645,6 +587,7 @@ footer a:hover {
 
   .nav-links {
     gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .nav-links a {
@@ -655,7 +598,6 @@ footer a:hover {
     grid-template-columns: 1fr;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-bottom: 60px;
     gap: 2rem;
   }
 
@@ -666,20 +608,23 @@ footer a:hover {
   .project {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 40px 0;
   }
 
   .project:nth-child(even) .project-image {
     order: 0;
   }
 
-  .project-stats {
-    grid-template-columns: 1fr;
-  }
-
   .about-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .featured {
+    padding: 80px 1.5rem;
+  }
+
+  .writing {
+    padding: 80px 1.5rem;
   }
 
   .contact {
@@ -692,45 +637,8 @@ footer a:hover {
   }
 
   .btn-primary,
-  .btn-secondary,
-  .contact-buttons button {
+  .btn-secondary {
     width: 100%;
-  }
-
-  .press {
-    padding: 80px 1.5rem;
-  }
-
-  .writing {
-    padding: 80px 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    gap: 0.8rem;
-    flex-wrap: wrap;
-  }
-
-  .hero {
-    padding-top: 80px;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-
-  .press-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .articles {
-    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -742,20 +650,18 @@ footer a:hover {
   <div class="logo">Hema Madhav</div>
   <div class="nav-links">
     <a href="#work">Work</a>
-    <a href="#press">Press</a>
+    <a href="#featured">Featured</a>
     <a href="#writing">Writing</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <button class="cta-btn" onclick="window.open('mailto:hemamadhav3@gmail.com')">Get in touch</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-subtitle">Product Designer & Published Author</div>
-    <h1>Designer, creator, <span>strategist</span></h1>
-    <p>I design products that solve real problems. Published healthcare researcher. Featured by WomenOnTopp. With 3+ years in product design, 5 completed projects, and a traditional art background, I bring strategic thinking to every challenge.</p>
+    <h1>Designer, strategist, <span>creator</span></h1>
+    <p>I design products and create work that solves real problems. Featured by WomenOnTopp. Published researcher. Based in Lehi, Utah. Open to new opportunities in product design and creative strategy.</p>
     <div class="hero-buttons">
       <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View work</button>
       <button class="btn-secondary" onclick="window.open('https://medium.com/@hemamadhav3')">Read on Medium</button>
@@ -770,7 +676,7 @@ footer a:hover {
 <section class="projects" id="work">
   <div class="section-header">
     <h2>Featured work</h2>
-    <p>Five projects that showcase strategic thinking, design excellence, and measurable impact</p>
+    <p>Projects that demonstrate design thinking and strategic problem-solving</p>
   </div>
 
   <div class="projects-grid">
@@ -780,51 +686,23 @@ footer a:hover {
         <img src="https://i.imgur.com/zU9ruUC.jpg" alt="AskDoc+ Healthcare Platform">
       </div>
       <div class="project-content">
-        <div class="project-tag">Product Design • Healthcare • AI</div>
+        <div class="project-tag">Product Design • Healthcare</div>
         <h3>AskDoc+ AI Health Assistant</h3>
-        <p>Designed an AI-powered symptom checker and health companion that transforms how millions understand their health. The platform combines medical accuracy with intuitive design, making healthcare information accessible to everyone.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">2M+</div>
-            <div class="stat-label">Users Served</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">94%</div>
-            <div class="stat-label">Satisfaction</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Live</div>
-            <div class="stat-label">Status</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Impact:</strong> Reduced user confusion by 65% through simplified information architecture and AI-guided interactions.</p>
+        <p>Designed an AI-powered symptom checker and health companion. The platform translates complex medical information into accessible, user-friendly guidance.</p>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 1rem;"><strong>Role:</strong> Product Designer | <strong>Status:</strong> Live</p>
       </div>
     </div>
 
     <!-- PROJECT 2: ARVEDA -->
     <div class="project">
       <div class="project-image">
-        <img src="https://i.imgur.com/RtphIIL.jpg" alt="ArVeda Cosmetics Branding">
+        <img src="https://i.imgur.com/RtphIIL.jpg" alt="ArVeda Cosmetics">
       </div>
       <div class="project-content">
-        <div class="project-tag">Branding • E-commerce • Featured</div>
-        <h3>ArVeda Cosmetics</h3>
-        <p>Built the complete brand identity and e-commerce platform for a traditional Indian cosmetics startup. Featured by WomenOnTopp for its authentic approach to pure, natural skincare. Every element reflects the brand's commitment to purity and tradition.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Natural Ingredients</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">120%</div>
-            <div class="stat-label">YoY Growth</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Product Lines</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Featured:</strong> WomenOnTopp highlighted ArVeda as a mother's love transformed into a skincare revolution.</p>
+        <div class="project-tag">Branding • E-commerce</div>
+        <h3>ArVeda Natural Cosmetics</h3>
+        <p>Built complete brand identity and e-commerce platform for natural skincare. Featured by WomenOnTopp for its authentic approach to heritage beauty traditions.</p>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 1rem;"><strong>Role:</strong> Brand Designer | <strong>Status:</strong> Live & Growing</p>
       </div>
     </div>
 
@@ -836,101 +714,59 @@ footer a:hover {
       <div class="project-content">
         <div class="project-tag">Fine Art • Cultural Design</div>
         <h3>Traditional Indian Art Series</h3>
-        <p>A collection of acrylic paintings exploring cultural identity, heritage, and contemporary expression. Featured by Landmark Artist, this work demonstrates how visual discipline in traditional media informs my approach to digital design.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">112+</div>
-            <div class="stat-label">Community Likes</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2021</div>
-            <div class="stat-label">Landmark Feature</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Art</div>
-            <div class="stat-label">Heritage</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Philosophy:</strong> Every visual element earns its place. This principle shapes all my work.</p>
+        <p>Collection of acrylic paintings exploring cultural identity and heritage. This work demonstrates how visual discipline in traditional media informs modern design thinking.</p>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 1rem;"><strong>Recognition:</strong> Landmark Artist Feature</p>
       </div>
     </div>
 
     <!-- PROJECT 4: VCODE -->
     <div class="project">
       <div class="project-image">
-        <img src="https://i.imgur.com/FZLjR21.jpg" alt="VCode Development Platform">
+        <img src="https://i.imgur.com/FZLjR21.jpg" alt="VCode Platform">
       </div>
       <div class="project-content">
-        <div class="project-tag">Platform Design • Developer Tools</div>
+        <div class="project-tag">Platform Design • Dev Tools</div>
         <h3>VCode Development Platform</h3>
-        <p>Designed an intuitive development platform that simplifies complex coding workflows. The platform provides real-time collaboration, intelligent code suggestions, and seamless integration with existing developer tools.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">50K+</div>
-            <div class="stat-label">Active Users</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">90%</div>
-            <div class="stat-label">Retention</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Dev</div>
-            <div class="stat-label">Focused</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Impact:</strong> Reduced developer onboarding time by 40% with intuitive UX design.</p>
+        <p>Designed intuitive interface for developer tools platform. Focused on simplifying complex workflows and improving developer experience through thoughtful UX design.</p>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 1rem;"><strong>Role:</strong> UX Designer | <strong>Status:</strong> In Development</p>
       </div>
     </div>
 
-    <!-- PROJECT 5: BUSINESS STARTREK GAME -->
+    <!-- PROJECT 5: BUSINESS GAME -->
     <div class="project">
       <div class="project-image">
         <img src="https://i.imgur.com/G9y8Nf8.jpg" alt="Business StarTrek Game">
       </div>
       <div class="project-content">
-        <div class="project-tag">Game Design • Gamification • Mobile</div>
-        <h3>Business StarTrek Game</h3>
-        <p>Designed and published an engaging mobile game that teaches business strategy and decision-making through an interactive sci-fi narrative. Now available on App Store, combining education with entertainment.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">4.8★</div>
-            <div class="stat-label">App Rating</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Published</div>
-            <div class="stat-label">App Store</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">+10K</div>
-            <div class="stat-label">Downloads</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Impact:</strong> Successfully published educational game with strong user engagement and retention metrics.</p>
+        <div class="project-tag">Game Design • Mobile</div>
+        <h3>Business Strategy Game</h3>
+        <p>Designed interactive mobile game combining business strategy learning with engaging sci-fi narrative. Demonstrates ability to create educational experiences that are genuinely fun.</p>
+        <p style="font-size: 13px; color: var(--muted); margin-top: 1rem;"><strong>Role:</strong> Game Designer | <strong>Status:</strong> Published</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRESS & FEATURES -->
-<section class="press" id="press">
-  <div class="press-container">
-    <div class="press-header">
+<!-- FEATURED & PUBLICATIONS -->
+<section class="featured" id="featured">
+  <div class="featured-container">
+    <div class="featured-header">
       <h2>Featured & Published</h2>
     </div>
-    <div class="press-grid">
-      <div class="press-item">
-        <h4>🌟 Women on Topp</h4>
-        <p>Featured for ArVeda Cosmetics: "A Mother's Love Transformed into a Skincare Revolution" — celebrating entrepreneurship and natural beauty innovation.</p>
+    <div class="featured-grid">
+      <div class="featured-item">
+        <h4>🌟 WomenOnTopp</h4>
+        <p>Featured for ArVeda Cosmetics: "A Mother's Love Transformed into a Skincare Revolution" — celebrating entrepreneurship and authentic brand building.</p>
         <a href="https://www.womenontopp.com/arveda-a-mothers-love-transformed-into-a-skincare-revolution/" target="_blank">Read feature ↗</a>
       </div>
-      <div class="press-item">
+      <div class="featured-item">
         <h4>📚 Research Publication</h4>
-        <p>Published in Applied Medical Informatics journal for AI healthcare research, contributing to peer-reviewed discourse on medical technology and user design.</p>
+        <p>Published in Applied Medical Informatics journal. Contributed to peer-reviewed research on AI in healthcare and user-centered medical technology design.</p>
         <a href="https://ami.info.umfcluj.ro/index.php/AMI/article/view/1230" target="_blank">Read paper ↗</a>
       </div>
-      <div class="press-item">
-        <h4>🎯 Landmark Artist</h4>
-        <p>Featured for traditional Indian art series, recognized for cultural significance and artistic excellence in contemporary expression of heritage themes.</p>
+      <div class="featured-item">
+        <h4>🎨 Landmark Artist</h4>
+        <p>Featured for traditional Indian art series. Recognized for cultural significance and artistic excellence in contemporary heritage expression.</p>
         <a href="#" target="_blank">View feature ↗</a>
       </div>
     </div>
@@ -940,37 +776,37 @@ footer a:hover {
 <!-- WRITING -->
 <section class="writing" id="writing">
   <div class="writing-header">
-    <h2>Writing & Ideas</h2>
-    <p>Thoughts on design, AI, healthcare, and technology published on Medium</p>
+    <h2>Writing</h2>
+    <p>Articles on design, AI, and healthcare published on Medium</p>
   </div>
   <div class="articles">
     <div class="article">
       <div class="article-content">
-        <div class="article-tag">AI • Health • Healthcare</div>
-        <div class="article-title">Your Body Already Knows. AI Is Finally Learning to Listen.</div>
-        <div class="article-desc">How artificial intelligence is revolutionizing personalized healthcare by understanding human physiology in unprecedented ways.</div>
-        <a href="https://medium.com/@hemamadhav3/your-body-already-knows-ai-is-finally-learning-to-listen-d447933055e9" target="_blank" class="article-link">Read on Medium ↗</a>
+        <div class="article-tag">Healthcare • AI</div>
+        <div class="article-title">Thoughts on health design and technology</div>
+        <div class="article-desc">Exploring how AI and thoughtful design can make healthcare information accessible to everyone.</div>
+        <a href="https://medium.com/@hemamadhav3" target="_blank" class="article-link">Read on Medium ↗</a>
       </div>
     </div>
     <div class="article">
       <div class="article-content">
-        <div class="article-tag">Healthcare • AI • Strategy</div>
-        <div class="article-title">The AI Doctor Will See You Now</div>
-        <div class="article-desc">Exploring the future of healthcare where AI assistants work alongside human doctors to provide better patient outcomes.</div>
-        <a href="https://medium.com/@hemamadhav3/the-ai-doctor-will-see-you-now-288cd313c16e" target="_blank" class="article-link">Read on Medium ↗</a>
+        <div class="article-tag">Design • Strategy</div>
+        <div class="article-title">Design thinking in product development</div>
+        <div class="article-desc">How strategic design principles solve real problems in healthcare, e-commerce, and beyond.</div>
+        <a href="https://medium.com/@hemamadhav3" target="_blank" class="article-link">Read on Medium ↗</a>
       </div>
     </div>
     <div class="article">
       <div class="article-content">
-        <div class="article-tag">Health Literacy • AI • Crisis</div>
-        <div class="article-title">Health Literacy Is a Crisis — Here's How AI Is Quietly Fixing It</div>
-        <div class="article-desc">Why health literacy gaps exist and how intelligent design combined with AI is making medical information accessible to all.</div>
-        <a href="https://medium.com/@hemamadhav3/health-literacy-is-a-crisis-heres-how-ai-is-quietly-fixing-it-ed5e34d33c15" target="_blank" class="article-link">Read on Medium ↗</a>
+        <div class="article-tag">Art • Culture</div>
+        <div class="article-title">Heritage and modern design</div>
+        <div class="article-desc">Why traditional visual disciplines matter for contemporary digital design practice.</div>
+        <a href="https://medium.com/@hemamadhav3" target="_blank" class="article-link">Read on Medium ↗</a>
       </div>
     </div>
   </div>
-  <div style="text-align: center; margin-top: 3rem;">
-    <a href="https://medium.com/@hemamadhav3" target="_blank" class="btn-secondary">View all articles on Medium</a>
+  <div class="writing-cta">
+    <a href="https://medium.com/@hemamadhav3" target="_blank" class="btn-secondary">View all articles</a>
   </div>
 </section>
 
@@ -979,16 +815,16 @@ footer a:hover {
   <div class="about-container">
     <div class="about-content">
       <h2>About me</h2>
-      <p>I'm a designer obsessed with clarity. My work spans product design, healthcare technology, branding, game design, and published research—each domain reinforcing my approach to solving complex problems.</p>
-      <p>For 3+ years, I've worked at the intersection of AI and human need, designing interfaces that make complex information accessible. My traditional art background taught me that every pixel matters. My published research proves that design thinking backed by data creates measurable impact.</p>
+      <p>I'm a designer obsessed with clarity. My work spans product design, healthcare technology, branding, game design, and published research.</p>
+      <p>For 3+ years, I've worked at the intersection of design and real problems. I've been featured by WomenOnTopp, published in peer-reviewed journals, and created work across healthcare, e-commerce, gaming, and cultural expression.</p>
       
       <ul class="about-list">
-        <li>5 completed projects across healthcare, gaming, e-commerce</li>
+        <li>Product design & UX strategy</li>
+        <li>Healthcare technology design</li>
+        <li>Brand identity & visual systems</li>
         <li>Published researcher in medical informatics</li>
-        <li>Featured by WomenOnTopp & Landmark Artist</li>
-        <li>2M+ users across products</li>
-        <li>Medium writer on AI & healthcare</li>
-        <li>Design systems & accessibility expertise</li>
+        <li>Game design & interactive experiences</li>
+        <li>Writer on design & technology</li>
       </ul>
     </div>
     <div class="about-image">
@@ -999,32 +835,19 @@ footer a:hover {
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <h2>Let's create something remarkable</h2>
-  <p>Open to Product Designer and Strategic Design roles. Based in Lehi, Utah—remote opportunities welcome. Let's discuss how my strategic thinking, published expertise, and design precision can solve your next challenge.</p>
+  <h2>Let's work together</h2>
+  <p>Open to Product Designer roles and creative strategy opportunities. Based in Lehi, Utah — remote work welcome. Let's discuss how I can contribute to your next project.</p>
   <div class="contact-buttons">
     <button class="btn-primary" onclick="window.open('mailto:hemamadhav3@gmail.com')">Email me</button>
-    <button class="btn-secondary" onclick="window.open('https://medium.com/@hemamadhav3')">Read my articles</button>
-    <button class="btn-secondary" onclick="window.open('https://linkedin.com/in/hema-madhav')">LinkedIn profile</button>
+    <button class="btn-secondary" onclick="window.open('https://medium.com/@hemamadhav3')">Read my writing</button>
+    <button class="btn-secondary" onclick="window.open('https://linkedin.com/in/hema-madhav')">LinkedIn</button>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Hema Madhav. Designer, writer, strategist. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
+  <p>© 2026 Hema Madhav. Designer, strategist, creator. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
 </footer>
-
-<script>
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-</script>
 
 </body>
 </html>
