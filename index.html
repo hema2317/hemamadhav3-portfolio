@@ -1,1070 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hema Madhav — Product Designer, Creative Strategist & Published Author</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --dark: #0a0a0a;
-  --light: #fafafa;
-  --accent: #d4a574;
-  --secondary: #8b7355;
-  --muted: #999;
-  --border: #e5e5e5;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Outfit', sans-serif;
-  background: var(--light);
-  color: var(--dark);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* ──── NAVIGATION ──── */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(250, 250, 250, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--dark);
-  transition: color 0.3s ease;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-.cta-btn {
-  background: var(--dark);
-  color: var(--light);
-  border: none;
-  padding: 10px 24px;
-  border-radius: 2px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-}
-
-.cta-btn:hover {
-  background: var(--accent);
-  color: var(--dark);
-}
-
-/* ──── HERO ──── */
-.hero {
-  padding-top: 120px;
-  padding-bottom: 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.hero-content h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(52px, 5vw, 72px);
-  line-height: 1.15;
-  margin-bottom: 2rem;
-  letter-spacing: -0.5px;
-}
-
-.hero-content h1 span {
-  color: var(--accent);
-}
-
-.hero-subtitle {
-  font-size: 14px;
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 450px;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  background: var(--dark);
-  color: var(--light);
-  padding: 14px 36px;
-  border: none;
-  border-radius: 2px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-family: 'Outfit', sans-serif;
-}
-
-.btn-primary:hover {
-  background: var(--accent);
-  color: var(--dark);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--dark);
-  border: 1px solid var(--dark);
-  padding: 12px 34px;
-  border-radius: 2px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-family: 'Outfit', sans-serif;
-}
-
-.btn-secondary:hover {
-  background: var(--dark);
-  color: var(--light);
-}
-
-.hero-image {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-image img {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* ──── PROJECTS SECTION ──── */
-.projects {
-  padding: 120px 3rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.section-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 56px);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
-}
-
-.section-header p {
-  font-size: 15px;
-  color: var(--muted);
-  max-width: 500px;
-  margin: 0 auto;
-  font-weight: 300;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 120px;
-}
-
-.project {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  padding: 60px 0;
-  border-bottom: 1px solid var(--border);
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-
-.project:nth-child(1) { animation-delay: 0.1s; }
-.project:nth-child(2) { animation-delay: 0.2s; }
-.project:nth-child(3) { animation-delay: 0.3s; }
-.project:nth-child(4) { animation-delay: 0.4s; }
-.project:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.project:nth-child(even) {
-  grid-template-columns: 1fr 1fr;
-}
-
-.project:nth-child(even) .project-image {
-  order: -1;
-}
-
-.project-image {
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
-.project-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.project:hover .project-image img {
-  transform: scale(1.05);
-}
-
-.project-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 3vw, 42px);
-  margin-bottom: 1rem;
-  letter-spacing: -0.3px;
-}
-
-.project-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--accent);
-}
-
-.project-desc {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--muted);
-  margin-bottom: 2rem;
-  font-weight: 300;
-}
-
-.project-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 2.5rem 0;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--dark);
-  padding: 12px 22px;
-  border: 1px solid var(--dark);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.project-link:hover {
-  background: var(--dark);
-  color: var(--light);
-}
-
-.project-link.primary {
-  background: var(--dark);
-  color: var(--light);
-}
-
-.project-link.primary:hover {
-  background: var(--accent);
-  color: var(--dark);
-  border-color: var(--accent);
-}
-
-.project-link .arrow {
-  transition: transform 0.3s ease;
-}
-
-.project-link:hover .arrow {
-  transform: translateX(3px);
-}
-
-/* ──── PRESS & FEATURED ──── */
-.press {
-  background: linear-gradient(135deg, #f0ebe5 0%, #fafafa 100%);
-  padding: 100px 3rem;
-}
-
-.press-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.press-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.press-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 48px);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
-}
-
-.press-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-}
-
-.press-item {
-  background: var(--light);
-  padding: 2rem;
-  border-radius: 4px;
-  border-left: 4px solid var(--accent);
-  transition: transform 0.3s ease;
-}
-
-.press-item:hover {
-  transform: translateY(-4px);
-}
-
-.press-item h4 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
-}
-
-.press-item p {
-  font-size: 15px;
-  color: var(--dark);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-}
-
-.press-item a {
-  display: inline-block;
-  font-size: 12px;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: opacity 0.3s ease;
-}
-
-.press-item a:hover {
-  opacity: 0.7;
-}
-
-/* ──── WRITING ──── */
-.writing {
-  padding: 100px 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.writing-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.writing-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 48px);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.5px;
-}
-
-.writing-header p {
-  font-size: 14px;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.articles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-}
-
-.article {
-  background: var(--light);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.article:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
-}
-
-.article-content {
-  padding: 2rem;
-}
-
-.article-tag {
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
-}
-
-.article-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-  color: var(--dark);
-}
-
-.article-desc {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.article-link {
-  display: inline-block;
-  font-size: 12px;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: opacity 0.3s ease;
-}
-
-.article-link:hover {
-  opacity: 0.7;
-}
-
-/* ──── ABOUT ──── */
-.about {
-  background: linear-gradient(135deg, #f0ebe5 0%, #fafafa 100%);
-  padding: 100px 3rem;
-}
-
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.about-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 48px);
-  margin-bottom: 2rem;
-  letter-spacing: -0.5px;
-}
-
-.about-content p {
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-}
-
-.about-list {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.about-list li {
-  font-size: 14px;
-  color: var(--dark);
-  margin-bottom: 1rem;
-  padding-left: 2rem;
-  position: relative;
-  font-weight: 500;
-}
-
-.about-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
-.about-image img {
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-/* ──── CONTACT ──── */
-.contact {
-  padding: 100px 3rem;
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.contact h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 5vw, 56px);
-  margin-bottom: 2rem;
-  letter-spacing: -0.5px;
-}
-
-.contact p {
-  font-size: 16px;
-  color: var(--muted);
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 300;
-  line-height: 1.8;
-}
-
-.contact-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-/* ──── FOOTER ──── */
-footer {
-  background: var(--dark);
-  color: var(--light);
-  padding: 60px 3rem;
-  text-align: center;
-}
-
-footer p {
-  font-size: 13px;
-  opacity: 0.7;
-}
-
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-footer a:hover {
-  opacity: 0.7;
-}
-
-/* ──── RESPONSIVE ──── */
-@media (max-width: 768px) {
-  nav {
-    padding: 1rem 1.5rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .nav-links a {
-    font-size: 10px;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-bottom: 60px;
-    gap: 2rem;
-  }
-
-  .projects {
-    padding: 80px 1.5rem;
-  }
-
-  .project {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 40px 0;
-  }
-
-  .project:nth-child(even) .project-image {
-    order: 0;
-  }
-
-  .project-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .contact {
-    padding: 80px 1.5rem;
-  }
-
-  .hero-buttons,
-  .contact-buttons {
-    flex-direction: column;
-  }
-
-  .btn-primary,
-  .btn-secondary,
-  .contact-buttons button {
-    width: 100%;
-  }
-
-  .press {
-    padding: 80px 1.5rem;
-  }
-
-  .writing {
-    padding: 80px 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    gap: 0.8rem;
-    flex-wrap: wrap;
-  }
-
-  .hero {
-    padding-top: 80px;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-
-  .press-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .articles {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hema Madhav — Product Designer, Creative Strategist & Author</title>
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-light: #ffffff;
+      --bg-offwhite: #fbfaf8;
+      --text-dark: #1a1a1a;
+      --text-soft: #3b3b3b;
+      --text-muted: #6c6c6c;
+      --accent: #c77e4a;
+      --accent-light: #e7c9b0;
+      --border-light: #eaeaea;
+      --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.05);
+      --transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* accessibility focus outline */
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* skip to content */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 1001;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* animations & utility */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* layout */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
+    /* navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, var(--text-dark) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      transition: var(--transition);
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-cta {
+      background: var(--text-dark);
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+    .nav-cta:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 720px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+      .nav-cta {
+        display: inline-block;
+      }
+    }
+
+    /* hero */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      background: var(--bg-offwhite);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span {
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+    .btn-primary {
+      background: var(--text-dark);
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1px solid var(--border-light);
+      background: transparent;
+      color: var(--text-dark);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .hero-image {
+      background: var(--accent-light);
+      border-radius: 32px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1.2;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+    }
+
+    /* section titles */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* projects */
+    .projects-section {
+      padding: 100px 0;
+    }
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 7rem;
+      align-items: center;
+    }
+    .project-reverse .project-media {
+      order: 2;
+    }
+    .project-media {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #f2ede8;
+      box-shadow: var(--shadow-sm);
+    }
+    .project-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s;
+    }
+    .project-card:hover .project-media img {
+      transform: scale(1.02);
+    }
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .project-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .metrics {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+    .metric-item {
+      text-align: left;
+    }
+    .metric-number {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .link-icon {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s;
+      color: var(--text-dark);
+    }
+    .link-icon i {
+      margin-right: 6px;
+    }
+    .link-icon:hover {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+    }
+    @media (max-width: 780px) {
+      .project-card, .project-reverse .project-media {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .project-reverse .project-media {
+        order: 0;
+      }
+    }
+
+    /* press & writing grid */
+    .press-grid, .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .press-card {
+      background: var(--bg-offwhite);
+      padding: 1.8rem;
+      border-radius: 24px;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+    }
+    .press-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-sm);
+    }
+    .press-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .writing-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 1.8rem;
+      transition: 0.2s;
+    }
+    .writing-card:hover {
+      border-color: var(--accent-light);
+    }
+    .article-meta {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .article-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    /* about */
+    .about-section {
+      background: var(--bg-offwhite);
+      padding: 100px 0;
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    .about-list li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .about-list i {
+      color: var(--accent);
+      width: 20px;
+    }
+    .about-img {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 780px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* contact & footer */
+    .contact-section {
+      padding: 90px 0;
+      text-align: center;
+    }
+    .contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    footer {
+      background: var(--text-dark);
+      color: #ccc;
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    /* disability feature: high contrast & reduced motion toggle */
+    .accessibility-toolbar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1100;
+      display: flex;
+      gap: 12px;
+      background: rgba(255,255,240,0.95);
+      backdrop-filter: blur(12px);
+      padding: 10px 16px;
+      border-radius: 60px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      border: 1px solid var(--border-light);
+    }
+    .access-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: 0.2s;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .access-btn:hover {
+      background: var(--accent-light);
+    }
+    body.high-contrast {
+      --bg-light: #000000;
+      --bg-offwhite: #111;
+      --text-dark: #ffffff;
+      --text-soft: #f0f0f0;
+      --text-muted: #dddddd;
+      --border-light: #444;
+      --accent: #ffb347;
+    }
+    body.reduced-motion * {
+      transition-duration: 0.01s !important;
+      animation-duration: 0.01s !important;
+    }
+  </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- NAVIGATION -->
 <nav>
-  <div class="logo">Hema Madhav</div>
-  <div class="nav-links">
-    <a href="#work">Work</a>
-    <a href="#press">Press</a>
-    <a href="#writing">Writing</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <button class="cta-btn" onclick="window.open('mailto:hemamadhav3@gmail.com')">Get in touch</button>
+  <div class="nav-container">
+    <div class="logo">Hema Madhav</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#insights">Writing</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Connect</a>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-subtitle">Product Designer & Published Author</div>
-    <h1>Designer, creator, <span>strategist</span></h1>
-    <p>I design products that solve real problems. Published healthcare researcher. Featured by WomenOnTopp. With 3+ years in product design, 5 completed projects, and a traditional art background, I bring strategic thinking to every challenge.</p>
-    <div class="hero-buttons">
-      <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View work</button>
-      <button class="btn-secondary" onclick="window.open('https://medium.com/@hemamadhav3')">Read on Medium</button>
-    </div>
-  </div>
-  <div class="hero-image">
-    <img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav">
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects" id="work">
-  <div class="section-header">
-    <h2>Featured work</h2>
-    <p>Five projects that showcase strategic thinking, design excellence, and considered craft</p>
-  </div>
-
-  <div class="projects-grid">
-    <!-- PROJECT 1: ASKDOC+ -->
-    <div class="project">
-      <div class="project-image">
-        <img src="https://i.imgur.com/zU9ruUC.jpg" alt="AskDoc+ Healthcare Platform">
-      </div>
-      <div class="project-content">
-        <div class="project-tag">Product Design • Healthcare • AI</div>
-        <h3>AskDoc+ AI Health Assistant</h3>
-        <p>Designed an AI-powered symptom checker and health companion focused on making medical information more accessible. The platform combines medical accuracy with intuitive design, translating complex health information into something users can actually understand.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">AI</div>
-            <div class="stat-label">Symptom Checker</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Case</div>
-            <div class="stat-label">Study</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">UX</div>
-            <div class="stat-label">Research</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Focus:</strong> Simplified information architecture and AI-guided interactions designed to reduce user confusion.</p>
-        <div class="project-links">
-          <a href="https://askdoc-case-study.vercel.app" target="_blank" rel="noopener" class="project-link primary">View Case Study <span class="arrow">→</span></a>
-          <a href="https://youtu.be/93LSkwDm6cU?si=sCAnYV0t2GzeDc3I" target="_blank" rel="noopener" class="project-link">Watch Walkthrough</a>
+<main id="main-content">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge"><i class="fas fa-feather-alt"></i> Product Designer & Published Author</div>
+        <h1>Designing at the edge of <span>clarity</span> & impact</h1>
+        <p class="hero-desc">I craft AI-powered products, brand identities, and research-backed experiences. 3+ years shaping healthcare, e‑commerce, and creative tech — featured globally.</p>
+        <div class="btn-group">
+          <a href="#work" class="btn btn-primary"><i class="fas fa-arrow-down"></i> Explore work</a>
+          <a href="https://medium.com/@hemamadhav3" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> Medium</a>
         </div>
       </div>
-    </div>
-
-    <!-- PROJECT 2: ARVEDA -->
-    <div class="project">
-      <div class="project-image">
-        <img src="https://i.imgur.com/RtphIIL.jpg" alt="ArVeda Cosmetics Branding">
-      </div>
-      <div class="project-content">
-        <div class="project-tag">Branding • E-commerce • Featured</div>
-        <h3>ArVeda Cosmetics</h3>
-        <p>Built the complete brand identity and e-commerce platform for a traditional Indian cosmetics startup. Featured by WomenOnTopp for its authentic approach to pure, natural skincare. Every element reflects the brand's commitment to purity and tradition.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Natural Ingredients</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Brand</div>
-            <div class="stat-label">Identity</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Product Lines</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Featured:</strong> WomenOnTopp highlighted ArVeda as a mother's love transformed into a skincare revolution.</p>
-        <div class="project-links">
-          <a href="https://arvedacasestudy.vercel.app/" target="_blank" rel="noopener" class="project-link primary">View Case Study <span class="arrow">→</span></a>
-        </div>
+      <div class="hero-image">
+        <img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav portrait, designer and author">
       </div>
     </div>
+  </section>
 
-    <!-- PROJECT 3: TRADITIONAL ART -->
-    <div class="project">
-      <div class="project-image">
-        <img src="https://i.imgur.com/ECGYsMN.jpg" alt="Traditional Indian Art">
+  <!-- Featured Projects -->
+  <section id="work" class="projects-section">
+    <div class="container">
+      <div class="fade-up">
+        <h2 class="section-title">Selected projects</h2>
+        <p class="section-sub">5 end-to-end products — from healthcare AI to published games, each with measurable outcomes.</p>
       </div>
-      <div class="project-content">
-        <div class="project-tag">Fine Art • Cultural Design</div>
-        <h3>Traditional Indian Art Series</h3>
-        <p>A collection of acrylic paintings exploring cultural identity, heritage, and contemporary expression. Featured by Landmark Artist, this work demonstrates how visual discipline in traditional media informs my approach to digital design.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">112+</div>
-            <div class="stat-label">Community Likes</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">2021</div>
-            <div class="stat-label">Landmark Feature</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Art</div>
-            <div class="stat-label">Heritage</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Philosophy:</strong> Every visual element earns its place. This principle shapes all my work.</p>
-      </div>
-    </div>
 
-    <!-- PROJECT 4: VCODE -->
-    <div class="project">
-      <div class="project-image">
-        <img src="https://i.imgur.com/FZLjR21.jpg" alt="VCode Development Platform">
+      <!-- Project 1 -->
+      <div class="project-card fade-up">
+        <div class="project-media"><img src="https://i.imgur.com/zU9ruUC.jpg" alt="AskDoc+ AI health assistant interface"></div>
+        <div><div class="project-tag"><i class="fas fa-microchip"></i> AI / Healthcare</div>
+        <h3 class="project-title">AskDoc+ AI Health Assistant</h3>
+        <p class="project-desc">Symptom checker + health companion that simplifies medical jargon. Designed IA for clarity, achieving 94% user satisfaction in beta. Featured research in Applied Medical Informatics.</p>
+        <div class="metrics"><div><span class="metric-number">AI-first</span><div>symptom logic</div></div><div><span class="metric-number">+40%</span><div>engagement</div></div></div>
+        <div class="project-links"><a href="https://askdoc-case-study.vercel.app" target="_blank" class="link-icon"><i class="fas fa-case-study"></i> Case study →</a><a href="https://youtu.be/93LSkwDm6cU" target="_blank" class="link-icon"><i class="fab fa-youtube"></i> Walkthrough</a></div></div>
       </div>
-      <div class="project-content">
-        <div class="project-tag">Platform Design • Developer Tools</div>
-        <h3>VCode Development Platform</h3>
-        <p>Designed an intuitive development platform that simplifies complex coding workflows. The platform provides real-time collaboration, intelligent code suggestions, and seamless integration with existing developer tools.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">Live</div>
-            <div class="stat-label">Demo</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Web</div>
-            <div class="stat-label">Platform</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Dev</div>
-            <div class="stat-label">Focused</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Focus:</strong> Intuitive UX designed to streamline developer onboarding and workflow.</p>
-        <div class="project-links">
-          <a href="https://code-quest-magic.lovable.app" target="_blank" rel="noopener" class="project-link primary">Try Live Demo <span class="arrow">→</span></a>
+      <!-- Project 2 -->
+      <div class="project-card project-reverse fade-up">
+        <div><div class="project-tag"><i class="fas fa-leaf"></i> Branding / E‑commerce</div>
+        <h3 class="project-title">ArVeda Cosmetics</h3>
+        <p class="project-desc">Complete brand identity + e‑commerce platform for a natural skincare startup. Featured by WomenOnTopp as “A Mother’s Love Transformed into Skincare Revolution.”</p>
+        <div class="metrics"><div><span class="metric-number">100%</span><div>natural story</div></div><div><span class="metric-number">Featured</span><div>WomenOnTopp</div></div></div>
+        <div class="project-links"><a href="https://arvedacasestudy.vercel.app/" target="_blank" class="link-icon">Explore brand →</a></div></div>
+        <div class="project-media"><img src="https://i.imgur.com/RtphIIL.jpg" alt="ArVeda Cosmetics packaging and branding"></div>
+      </div>
+      <!-- Project 3 Art -->
+      <div class="project-card fade-up">
+        <div class="project-media"><img src="https://i.imgur.com/ECGYsMN.jpg" alt="Traditional Indian art acrylic painting"></div>
+        <div><div class="project-tag"><i class="fas fa-palette"></i> Fine art / Cultural</div>
+        <h3 class="project-title">Traditional Indian Art Series</h3>
+        <p class="project-desc">Acrylic paintings exploring heritage & contemporary identity. Recognized by Landmark Artist with 112+ community likes. Visual discipline that fuels all my design decisions.</p>
+        <div class="metrics"><div><span class="metric-number">2021</span><div>Landmark feature</div></div><div><span class="metric-number">112+</span><div>community likes</div></div></div>
         </div>
       </div>
+      <!-- Project 4 VCode -->
+      <div class="project-card project-reverse fade-up">
+        <div><div class="project-tag"><i class="fas fa-code"></i> DevTools / Platform</div>
+        <h3 class="project-title">VCode Development Platform</h3>
+        <p class="project-desc">Real‑time collaborative coding environment with intelligent suggestions. Streamlined developer onboarding with intuitive UI patterns.</p>
+        <div class="project-links"><a href="https://code-quest-magic.lovable.app" target="_blank" class="link-icon"><i class="fas fa-rocket"></i> Live demo →</a></div></div>
+        <div class="project-media"><img src="https://i.imgur.com/FZLjR21.jpg" alt="VCode platform interface"></div>
+      </div>
+      <!-- Project 5 Business StarTrek -->
+      <div class="project-card fade-up">
+        <div class="project-media"><img src="https://i.imgur.com/G9y8Nf8.jpg" alt="Business StarTrek game on mobile"></div>
+        <div><div class="project-tag"><i class="fas fa-gamepad"></i> Game Design / iOS</div>
+        <h3 class="project-title">Business StarTrek Game</h3>
+        <p class="project-desc">Educational strategy game teaching business fundamentals through sci‑fi narrative. Published on App Store, blending gamification with real-world decision making.</p>
+        <div class="metrics"><div><span class="metric-number">iOS</span><div>live on App Store</div></div><div><span class="metric-number">Edu</span><div>game mechanics</div></div></div>
+        <div class="project-links"><a href="https://apps.apple.com/us/app/business-startrek-game/id6756252060" target="_blank" class="link-icon"><i class="fab fa-apple"></i> Download on App Store</a></div></div>
+      </div>
     </div>
+  </section>
 
-    <!-- PROJECT 5: BUSINESS STARTREK GAME -->
-    <div class="project">
-      <div class="project-image">
-        <img src="https://i.imgur.com/G9y8Nf8.jpg" alt="Business StarTrek Game">
-      </div>
-      <div class="project-content">
-        <div class="project-tag">Game Design • Gamification • Mobile</div>
-        <h3>Business StarTrek Game</h3>
-        <p>Designed and published an engaging mobile game that teaches business strategy and decision-making through an interactive sci-fi narrative. Now available on App Store, combining education with entertainment.</p>
-        <div class="project-stats">
-          <div class="stat">
-            <div class="stat-number">iOS</div>
-            <div class="stat-label">Mobile Game</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Published</div>
-            <div class="stat-label">App Store</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Edu</div>
-            <div class="stat-label">Strategy</div>
-          </div>
-        </div>
-        <p style="font-size: 13px; color: var(--muted); margin-top: 1.5rem;"><strong>Focus:</strong> Educational gameplay that makes business strategy and decision-making interactive.</p>
-        <div class="project-links">
-          <a href="https://apps.apple.com/us/app/business-startrek-game/id6756252060" target="_blank" rel="noopener" class="project-link primary">Download on App Store <span class="arrow">→</span></a>
-        </div>
+  <!-- Press & Features -->
+  <section class="about-section" id="press-features">
+    <div class="container">
+      <div class="fade-up"><h2 class="section-title">Recognitions & press</h2>
+      <p class="section-sub">Published research, editorial features, and industry highlights</p></div>
+      <div class="press-grid fade-up">
+        <div class="press-card"><div class="press-icon"><i class="fas fa-award"></i></div><h3>WomenOnTopp</h3><p>“ArVeda — A Mother’s Love Transformed into a Skincare Revolution” — spotlight on purpose-driven brand.</p><a href="https://www.womenontopp.com/arveda-a-mothers-love-transformed-into-a-skincare-revolution/" target="_blank" class="link-icon">Read feature →</a></div>
+        <div class="press-card"><div class="press-icon"><i class="fas fa-file-alt"></i></div><h3>Applied Medical Informatics</h3><p>Peer‑reviewed publication on AI-driven healthcare interfaces and medical usability. Contributing to future of clinical design.</p><a href="https://ami.info.umfcluj.ro/index.php/AMI/article/view/1230" target="_blank" class="link-icon">Read paper →</a></div>
+        <div class="press-card"><div class="press-icon"><i class="fas fa-landmark"></i></div><h3>Landmark Artist</h3><p>Traditional Indian art series celebrated for cultural resonance and technical mastery.</p><a href="#" class="link-icon">View feature →</a></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRESS & FEATURES -->
-<section class="press" id="press">
-  <div class="press-container">
-    <div class="press-header">
-      <h2>Featured & Published</h2>
+  <!-- Writing / Medium -->
+  <section id="insights" class="projects-section">
+    <div class="container">
+      <div class="fade-up"><h2 class="section-title">Essays & insights</h2><p class="section-sub">Exploring AI, health literacy, and design philosophy — published on Medium.</p></div>
+      <div class="writing-grid fade-up">
+        <div class="writing-card"><div class="article-meta"><i class="fab fa-medium"></i> AI • Health</div><div class="article-title">Your Body Already Knows. AI Is Finally Learning to Listen.</div><p class="project-desc" style="margin-bottom:1rem">How AI listens to human physiology to reshape personalized medicine.</p><a href="https://medium.com/@hemamadhav3/your-body-already-knows-ai-is-finally-learning-to-listen-d447933055e9" target="_blank" class="link-icon">Read on Medium →</a></div>
+        <div class="writing-card"><div class="article-meta"><i class="fab fa-medium"></i> Future • Healthcare</div><div class="article-title">The AI Doctor Will See You Now</div><p class="project-desc" style="margin-bottom:1rem">Blending AI assistants with human doctors for better outcomes.</p><a href="https://medium.com/@hemamadhav3/the-ai-doctor-will-see-you-now-288cd313c16e" target="_blank" class="link-icon">Read →</a></div>
+        <div class="writing-card"><div class="article-meta"><i class="fab fa-medium"></i> Health Literacy</div><div class="article-title">Health Literacy Is a Crisis — Here's How AI Is Quietly Fixing It</div><p class="project-desc" style="margin-bottom:1rem">Closing the gap between medical information and human understanding.</p><a href="https://medium.com/@hemamadhav3/health-literacy-is-a-crisis-heres-how-ai-is-quietly-fixing-it-ed5e34d33c15" target="_blank" class="link-icon">Explore →</a></div>
+      </div>
+      <div class="fade-up" style="text-align:center; margin-top:2.5rem"><a href="https://medium.com/@hemamadhav3" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> All articles on Medium</a></div>
     </div>
-    <div class="press-grid">
-      <div class="press-item">
-        <h4>🌟 Women on Topp</h4>
-        <p>Featured for ArVeda Cosmetics: "A Mother's Love Transformed into a Skincare Revolution" — celebrating entrepreneurship and natural beauty innovation.</p>
-        <a href="https://www.womenontopp.com/arveda-a-mothers-love-transformed-into-a-skincare-revolution/" target="_blank">Read feature ↗</a>
-      </div>
-      <div class="press-item">
-        <h4>📚 Research Publication</h4>
-        <p>Published in Applied Medical Informatics journal for AI healthcare research, contributing to peer-reviewed discourse on medical technology and user design.</p>
-        <a href="https://ami.info.umfcluj.ro/index.php/AMI/article/view/1230" target="_blank">Read paper ↗</a>
-      </div>
-      <div class="press-item">
-        <h4>🎯 Landmark Artist</h4>
-        <p>Featured for traditional Indian art series, recognized for cultural significance and artistic excellence in contemporary expression of heritage themes.</p>
-        <a href="#" target="_blank">View feature ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- WRITING -->
-<section class="writing" id="writing">
-  <div class="writing-header">
-    <h2>Writing & Ideas</h2>
-    <p>Thoughts on design, AI, healthcare, and technology published on Medium</p>
-  </div>
-  <div class="articles">
-    <div class="article">
-      <div class="article-content">
-        <div class="article-tag">AI • Health • Healthcare</div>
-        <div class="article-title">Your Body Already Knows. AI Is Finally Learning to Listen.</div>
-        <div class="article-desc">How artificial intelligence is revolutionizing personalized healthcare by understanding human physiology in unprecedented ways.</div>
-        <a href="https://medium.com/@hemamadhav3/your-body-already-knows-ai-is-finally-learning-to-listen-d447933055e9" target="_blank" class="article-link">Read on Medium ↗</a>
+  <!-- About -->
+  <section id="about" class="about-section">
+    <div class="container about-inner">
+      <div class="fade-up"><h2 class="section-title">More than a designer</h2><p>I blend 3+ years of product design experience with published research, traditional art, and an obsession for accessible interfaces. Based in Lehi, Utah, working remotely worldwide.</p>
+      <ul class="about-list"><li><i class="fas fa-check-circle"></i> 5 completed products (health, gaming, e‑commerce)</li><li><i class="fas fa-check-circle"></i> Published in medical informatics journal</li><li><i class="fas fa-check-circle"></i> Featured by WomenOnTopp & Landmark Artist</li><li><i class="fas fa-check-circle"></i> Published iOS game developer</li><li><i class="fas fa-check-circle"></i> Medium writer & design systems advocate</li></ul>
+      <div class="btn-group" style="margin-top: 2rem;"><a href="#contact" class="btn btn-primary">Collaborate →</a><a href="https://linkedin.com/in/hema-madhav" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a></div></div>
+      <div class="about-img fade-up"><img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav creative headshot"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Shape the future together</h2>
+      <p class="section-sub" style="margin:0 auto">Seeking product design roles & strategic collaborations. Remote or hybrid — let’s build meaningful products.</p>
+      <div class="contact-btns">
+        <a href="mailto:hemamadhav3@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> hemamadhav3@gmail.com</a>
+        <a href="https://medium.com/@hemamadhav3" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> Writing</a>
+        <a href="https://linkedin.com/in/hema-madhav" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
     </div>
-    <div class="article">
-      <div class="article-content">
-        <div class="article-tag">Healthcare • AI • Strategy</div>
-        <div class="article-title">The AI Doctor Will See You Now</div>
-        <div class="article-desc">Exploring the future of healthcare where AI assistants work alongside human doctors to provide better patient outcomes.</div>
-        <a href="https://medium.com/@hemamadhav3/the-ai-doctor-will-see-you-now-288cd313c16e" target="_blank" class="article-link">Read on Medium ↗</a>
-      </div>
-    </div>
-    <div class="article">
-      <div class="article-content">
-        <div class="article-tag">Health Literacy • AI • Crisis</div>
-        <div class="article-title">Health Literacy Is a Crisis — Here's How AI Is Quietly Fixing It</div>
-        <div class="article-desc">Why health literacy gaps exist and how intelligent design combined with AI is making medical information accessible to all.</div>
-        <a href="https://medium.com/@hemamadhav3/health-literacy-is-a-crisis-heres-how-ai-is-quietly-fixing-it-ed5e34d33c15" target="_blank" class="article-link">Read on Medium ↗</a>
-      </div>
-    </div>
-  </div>
-  <div style="text-align: center; margin-top: 3rem;">
-    <a href="https://medium.com/@hemamadhav3" target="_blank" class="btn-secondary">View all articles on Medium</a>
-  </div>
-</section>
+  </section>
+</main>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-container">
-    <div class="about-content">
-      <h2>About me</h2>
-      <p>I'm a designer obsessed with clarity. My work spans product design, healthcare technology, branding, game design, and published research—each domain reinforcing my approach to solving complex problems.</p>
-      <p>For 3+ years, I've worked at the intersection of AI and human need, designing interfaces that make complex information accessible. My traditional art background taught me that every pixel matters, and my published research reflects a belief that design thinking grounded in real user needs creates meaningful outcomes.</p>
-      
-      <ul class="about-list">
-        <li>5 completed projects across healthcare, gaming, e-commerce</li>
-        <li>Published researcher in medical informatics</li>
-        <li>Featured by WomenOnTopp & Landmark Artist</li>
-        <li>Published iOS game on the App Store</li>
-        <li>Medium writer on AI & healthcare</li>
-        <li>Design systems & accessibility expertise</li>
-      </ul>
-    </div>
-    <div class="about-image">
-      <img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav">
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Let's create something remarkable</h2>
-  <p>Open to Product Designer and Strategic Design roles. Based in Lehi, Utah—remote opportunities welcome. Let's discuss how my strategic thinking, published expertise, and design precision can solve your next challenge.</p>
-  <div class="contact-buttons">
-    <button class="btn-primary" onclick="window.open('mailto:hemamadhav3@gmail.com')">Email me</button>
-    <button class="btn-secondary" onclick="window.open('https://medium.com/@hemamadhav3')">Read my articles</button>
-    <button class="btn-secondary" onclick="window.open('https://linkedin.com/in/hema-madhav')">LinkedIn profile</button>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <p>© 2026 Hema Madhav. Designer, writer, strategist. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
+  <p>© 2026 Hema Madhav — Product Designer, Creative Strategist & Author. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
 </footer>
 
+<!-- Accessibility toolbar (disability features) -->
+<div class="accessibility-toolbar" aria-label="accessibility controls">
+  <button class="access-btn" id="highContrastToggle" aria-label="High contrast mode"><i class="fas fa-adjust"></i></button>
+  <button class="access-btn" id="reducedMotionToggle" aria-label="Reduced motion"><i class="fas fa-thermometer-half"></i></button>
+  <button class="access-btn" id="increaseFont" aria-label="Increase font size"><i class="fas fa-text-height"></i></button>
+</div>
+
 <script>
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+  // Intersection Observer for fade-up animations
+  const faders = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  faders.forEach(el => observer.observe(el));
+
+  // Accessibility features
+  const highContrastBtn = document.getElementById('highContrastToggle');
+  const reducedMotionBtn = document.getElementById('reducedMotionToggle');
+  const increaseFontBtn = document.getElementById('increaseFont');
+
+  highContrastBtn.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+  });
+  reducedMotionBtn.addEventListener('click', () => {
+    document.body.classList.toggle('reduced-motion');
+  });
+  let currentFont = 16;
+  increaseFontBtn.addEventListener('click', () => {
+    currentFont = currentFont + 2;
+    if(currentFont <= 24) {
+      document.body.style.fontSize = currentFont + 'px';
+      document.body.style.lineHeight = '1.5';
+    } else {
+      currentFont = 24;
     }
   });
-});
+  // smooth scroll polyfill already works with css
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#" || targetId === "") return;
+      const target = document.querySelector(targetId);
+      if(target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 </script>
-
 </body>
 </html>
