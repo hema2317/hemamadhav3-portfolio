@@ -33,6 +33,13 @@
       --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
       --shadow-lg: 0 20px 35px -12px rgba(0,0,0,0.1);
       --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --base-font-size: 16px;
+    }
+
+    /* Base font size for accessibility scaling */
+    html {
+      font-size: var(--base-font-size);
+      scroll-behavior: smooth;
     }
 
     body {
@@ -40,11 +47,25 @@
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.5;
-      scroll-behavior: smooth;
+      font-size: 1rem;
     }
 
-    /* Accessibility + high contrast support */
-    .high-contrast {
+    /* REDUCED MOTION - complete fix */
+    body.reduced-motion,
+    body.reduced-motion * {
+      transition-duration: 0.01s !important;
+      animation-duration: 0.01s !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+    
+    /* Also disable smooth scroll on html when reduced motion is active */
+    body.reduced-motion html {
+      scroll-behavior: auto !important;
+    }
+
+    /* HIGH CONTRAST - working fix */
+    body.high-contrast {
       --bg-primary: #000000;
       --bg-secondary: #111111;
       --bg-elevated: #1a1a1a;
@@ -56,11 +77,38 @@
       --accent-soft: #664411;
     }
 
-    .reduced-motion * {
-      transition-duration: 0.01s !important;
-      animation-duration: 0.01s !important;
-      scroll-behavior: auto !important;
+    /* Fix for nav background in high contrast */
+    body.high-contrast nav {
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: none;
     }
+
+    /* Fix for hero image in high contrast */
+    body.high-contrast .hero-image {
+      border: 1px solid #ffffff;
+    }
+
+    /* TEXT SIZE SCALING - proper rem-based scaling */
+    body.font-large { --base-font-size: 18px; }
+    body.font-xlarge { --base-font-size: 20px; }
+    body.font-xxlarge { --base-font-size: 22px; }
+    
+    /* Apply the font size */
+    html {
+      font-size: var(--base-font-size);
+    }
+    
+    /* Ensure all text elements scale proportionally */
+    h1, h2, h3, h4, p, a, button, li, .btn, .metric, .project-title, .hero-desc, .section-title {
+      font-size: inherit;
+    }
+    
+    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: 1.4rem; }
+    .project-title { font-size: 1.6rem; }
+    .hero-desc { font-size: 1.05rem; }
+    .btn { font-size: 0.85rem; }
 
     .skip-link {
       position: absolute;
@@ -149,20 +197,7 @@
       font-weight: 600;
       margin-bottom: 1.2rem;
     }
-    .hero h1 {
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
     .hero-highlight { color: var(--accent); }
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--text-tertiary);
-      max-width: 520px;
-      margin-bottom: 2rem;
-    }
     .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       padding: 0.8rem 1.8rem;
@@ -173,7 +208,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
     }
     .btn-primary {
       background: var(--text-primary);
@@ -208,7 +242,6 @@
       margin-bottom: 0.8rem;
     }
     .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
@@ -219,7 +252,7 @@
       margin-bottom: 3rem;
     }
 
-    /* projects grid (clean professional) */
+    /* projects grid */
     .projects-section { padding: 100px 0; }
     .project-row {
       display: grid;
@@ -245,12 +278,6 @@
       text-transform: uppercase;
       margin-bottom: 0.8rem;
       letter-spacing: 0.5px;
-    }
-    .project-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.3px;
     }
     .project-desc {
       color: var(--text-secondary);
@@ -423,7 +450,7 @@
 </nav>
 
 <main id="main-content">
-  <!-- HERO Section - Top 20 Profile Energy -->
+  <!-- HERO Section -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="fade-up">
@@ -441,7 +468,7 @@
     </div>
   </section>
 
-  <!-- Featured Projects (updated with refined descriptions) -->
+  <!-- Featured Projects -->
   <section id="work" class="projects-section">
     <div class="container">
       <div class="fade-up">
@@ -464,13 +491,13 @@
       <div class="project-row project-reverse fade-up">
         <div><div class="project-tag"><i class="fas fa-leaf"></i> BRAND IDENTITY · E‑COMMERCE</div>
         <h3 class="project-title">ArVeda Cosmetics</h3>
-        <p class="project-desc">Complete brand strategy + D2C platform for a natural skincare startup. Designed visual identity, packaging system, and responsive e‑commerce interface. Featured by WomenOnTopp as “A Mother’s Love Transformed into a Skincare Revolution.” Increased conversion by 28% post‑launch.</p>
+        <p class="project-desc">Complete brand strategy + D2C platform for a natural skincare startup. Designed visual identity, packaging system, and responsive e‑commerce interface. Featured by WomenOnTopp as "A Mother's Love Transformed into a Skincare Revolution." Increased conversion by 28% post‑launch.</p>
         <div class="metric-badge"><span class="metric">⭐ Featured: WomenOnTopp</span><span class="metric">100% natural narrative</span></div>
         <div class="project-links"><a href="https://arvedacasestudy.vercel.app/" target="_blank" class="link-sm"><i class="fas fa-palette"></i> Explore branding →</a></div></div>
         <div class="project-media"><img src="https://i.imgur.com/RtphIIL.jpg" alt="ArVeda Cosmetics packaging"></div>
       </div>
 
-      <!-- Project 3: Traditional Art + Landmark -->
+      <!-- Project 3: Traditional Art -->
       <div class="project-row fade-up">
         <div class="project-media"><img src="https://i.imgur.com/ECGYsMN.jpg" alt="Traditional Indian Art series"></div>
         <div><div class="project-tag"><i class="fas fa-paintbrush"></i> FINE ART · CULTURAL HERITAGE</div>
@@ -480,7 +507,7 @@
         </div>
       </div>
 
-      <!-- Project 4: VCode Platform -->
+      <!-- Project 4: VCode -->
       <div class="project-row project-reverse fade-up">
         <div><div class="project-tag"><i class="fas fa-terminal"></i> DEVELOPER TOOLS · PLATFORM UX</div>
         <h3 class="project-title">VCode Development Platform</h3>
@@ -489,7 +516,7 @@
         <div class="project-media"><img src="https://i.imgur.com/FZLjR21.jpg" alt="VCode development interface"></div>
       </div>
 
-      <!-- Project 5: Business StarTrek Game (iOS Published) -->
+      <!-- Project 5: Business StarTrek Game -->
       <div class="project-row fade-up">
         <div class="project-media"><img src="https://i.imgur.com/G9y8Nf8.jpg" alt="Business StarTrek Game on mobile"></div>
         <div><div class="project-tag"><i class="fas fa-gamepad"></i> GAME DESIGN · IOS PUBLISHED</div>
@@ -501,19 +528,19 @@
     </div>
   </section>
 
-  <!-- Press & Recognition (refined) -->
+  <!-- Press & Recognition -->
   <section class="press-section" id="press">
     <div class="container">
       <div class="fade-up"><div class="section-label">RECOGNITION</div><h2 class="section-title">Featured & cited</h2><p class="section-subhead">Published research, editorial features, and global recognition.</p></div>
       <div class="press-grid fade-up">
-        <div class="press-card"><div class="press-icon"><i class="fas fa-star"></i></div><h3>WomenOnTopp</h3><p>“ArVeda — A Mother’s Love Transformed into a Skincare Revolution” — entrepreneurial spotlight.</p><a href="https://www.womenontopp.com/arveda-a-mothers-love-transformed-into-a-skincare-revolution/" target="_blank" class="link-sm">Read feature →</a></div>
+        <div class="press-card"><div class="press-icon"><i class="fas fa-star"></i></div><h3>WomenOnTopp</h3><p>"ArVeda — A Mother's Love Transformed into a Skincare Revolution" — entrepreneurial spotlight.</p><a href="https://www.womenontopp.com/arveda-a-mothers-love-transformed-into-a-skincare-revolution/" target="_blank" class="link-sm">Read feature →</a></div>
         <div class="press-card"><div class="press-icon"><i class="fas fa-newspaper"></i></div><h3>Applied Medical Informatics</h3><p>Peer‑reviewed publication: AI-driven healthcare interfaces and patient usability frameworks.</p><a href="https://ami.info.umfcluj.ro/index.php/AMI/article/view/1230" target="_blank" class="link-sm">Read paper →</a></div>
         <div class="press-card"><div class="press-icon"><i class="fas fa-landmark"></i></div><h3>Landmark Artist</h3><p>Traditional Indian art series recognized for cultural depth and visual excellence.</p><a href="#" class="link-sm">View feature →</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Writing: Author perspective -->
+  <!-- Writing -->
   <section id="insights" class="writing-section">
     <div class="container">
       <div class="fade-up"><div class="section-label">THOUGHT LEADERSHIP</div><h2 class="section-title">Writing on design & AI</h2><p class="section-subhead">Exploring the intersection of health literacy, artificial intelligence, and human‑centered innovation.</p></div>
@@ -526,7 +553,7 @@
     </div>
   </section>
 
-  <!-- About / Bio + Education (Full academic record + Caltech & Google Bootcamps) -->
+  <!-- About / Bio + Education -->
   <section id="about" class="about-section">
     <div class="container about-grid">
       <div class="fade-up">
@@ -539,16 +566,12 @@
           <div><div class="stat-number">Published</div><div>medical journal</div></div>
         </div>
         
-        <!-- EDUCATION SECTION: complete details including degrees and bootcamps -->
+        <!-- EDUCATION SECTION: Full details including degrees and bootcamps -->
         <div class="education-list">
-          <!-- Academic Degrees -->
           <li><span class="edu-degree">🎓 Bachelor of Biotechnology</span><span class="edu-detail">Amity University, Noida, India</span><span class="edu-gpa">GPA: 4.0</span></li>
-          <li><span class="edu-degree">🔬 Master’s in Biomedical Sciences</span><span class="edu-detail">University of Helsinki, Finland</span><span class="edu-gpa">GPA: 3.9</span></li>
-          
-          <!-- Professional Bootcamps / Certifications -->
+          <li><span class="edu-degree">🔬 Master's in Biomedical Sciences</span><span class="edu-detail">University of Helsinki, Finland</span><span class="edu-gpa">GPA: 3.9</span></li>
           <li><span class="edu-degree"><i class="fas fa-certificate bootcamp-icon"></i> UX/UI Boot Camp</span><span class="edu-detail">Caltech (California Institute of Technology) — Intensive UX/UI program focused on human-centered design, design systems, and advanced prototyping.</span><span class="edu-badge">certificate</span></li>
           <li><span class="edu-degree"><i class="fab fa-google bootcamp-icon"></i> Google UX/UI Design Certificate</span><span class="edu-detail">Google Career Certificates — Comprehensive training in user research, wireframing, high-fidelity mockups, responsive design, and usability testing.</span><span class="edu-badge">professional</span></li>
-          
           <li><span class="edu-degree">📘 Continuous Learning</span><span class="edu-detail">AI product strategy, design ethics, accessibility-first design</span></li>
         </div>
         
@@ -581,15 +604,15 @@
   <p>© 2026 Hema Madhav — Product Designer, Creative Strategist & Published Author. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
 </footer>
 
-<!-- Accessibility & Disability Features Toolbar -->
+<!-- Accessibility Toolbar - ALL THREE BUTTONS NOW WORKING -->
 <div class="access-toolbar">
-  <button class="access-btn" id="highContrastToggle" aria-label="High contrast mode"><i class="fas fa-eye"></i></button>
-  <button class="access-btn" id="reducedMotionToggle" aria-label="Reduce motion"><i class="fas fa-thermometer-half"></i></button>
-  <button class="access-btn" id="increaseFontBtn" aria-label="Increase text size"><i class="fas fa-text-height"></i></button>
+  <button class="access-btn" id="highContrastToggle" aria-label="High contrast mode" title="High Contrast"><i class="fas fa-eye"></i></button>
+  <button class="access-btn" id="reducedMotionToggle" aria-label="Reduce motion" title="Reduce Motion"><i class="fas fa-thermometer-half"></i></button>
+  <button class="access-btn" id="increaseFontBtn" aria-label="Increase text size" title="Text Size"><i class="fas fa-text-height"></i></button>
 </div>
 
 <script>
-  // Intersection Observer
+  // Intersection Observer for fade animations
   const fadeElements = document.querySelectorAll('.fade-up');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -601,21 +624,80 @@
   }, { threshold: 0.1 });
   fadeElements.forEach(el => obs.observe(el));
 
-  // accessibility toggles
-  const highContrast = document.getElementById('highContrastToggle');
-  const reducedMotion = document.getElementById('reducedMotionToggle');
-  const increaseFont = document.getElementById('increaseFontBtn');
-
-  highContrast.addEventListener('click', () => document.body.classList.toggle('high-contrast'));
-  reducedMotion.addEventListener('click', () => document.body.classList.toggle('reduced-motion'));
-  let currentFont = 16;
-  increaseFont.addEventListener('click', () => {
-    if(currentFont < 22) {
-      currentFont += 2;
-      document.body.style.fontSize = currentFont + 'px';
-    } else { currentFont = 22; }
+  // ========== ACCESSIBILITY FEATURES - ALL THREE WORKING ==========
+  
+  // 1. HIGH CONTRAST TOGGLE
+  const highContrastBtn = document.getElementById('highContrastToggle');
+  highContrastBtn.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+    // Save preference to localStorage
+    if (document.body.classList.contains('high-contrast')) {
+      localStorage.setItem('highContrast', 'enabled');
+    } else {
+      localStorage.setItem('highContrast', 'disabled');
+    }
   });
-  // smooth scroll
+  
+  // Load high contrast preference
+  if (localStorage.getItem('highContrast') === 'enabled') {
+    document.body.classList.add('high-contrast');
+  }
+
+  // 2. REDUCED MOTION TOGGLE - FIXED
+  const reducedMotionBtn = document.getElementById('reducedMotionToggle');
+  reducedMotionBtn.addEventListener('click', () => {
+    document.body.classList.toggle('reduced-motion');
+    
+    // Also disable/enable smooth scroll on html
+    if (document.body.classList.contains('reduced-motion')) {
+      document.documentElement.style.scrollBehavior = 'auto';
+      localStorage.setItem('reducedMotion', 'enabled');
+    } else {
+      document.documentElement.style.scrollBehavior = '';
+      localStorage.setItem('reducedMotion', 'disabled');
+    }
+  });
+  
+  // Load reduced motion preference
+  if (localStorage.getItem('reducedMotion') === 'enabled') {
+    document.body.classList.add('reduced-motion');
+    document.documentElement.style.scrollBehavior = 'auto';
+  }
+
+  // 3. TEXT SIZE TOGGLER - FIXED (cycles through 4 sizes: normal, large, xlarge, xxlarge)
+  let fontSizeLevel = 0; // 0=normal(16px), 1=large(18px), 2=xlarge(20px), 3=xxlarge(22px)
+  const fontSizes = ['', 'font-large', 'font-xlarge', 'font-xxlarge'];
+  
+  const fontSizeBtn = document.getElementById('increaseFontBtn');
+  
+  function updateFontSize(level) {
+    // Remove all font size classes
+    document.body.classList.remove('font-large', 'font-xlarge', 'font-xxlarge');
+    if (level > 0) {
+      document.body.classList.add(fontSizes[level]);
+    }
+    // Update CSS variable
+    let baseSize = 16;
+    if (level === 1) baseSize = 18;
+    else if (level === 2) baseSize = 20;
+    else if (level === 3) baseSize = 22;
+    document.documentElement.style.setProperty('--base-font-size', baseSize + 'px');
+    localStorage.setItem('fontSizeLevel', level);
+  }
+  
+  fontSizeBtn.addEventListener('click', () => {
+    fontSizeLevel = (fontSizeLevel + 1) % 4; // Cycle 0→1→2→3→0
+    updateFontSize(fontSizeLevel);
+  });
+  
+  // Load saved font size preference
+  const savedFontLevel = localStorage.getItem('fontSizeLevel');
+  if (savedFontLevel !== null) {
+    fontSizeLevel = parseInt(savedFontLevel);
+    updateFontSize(fontSizeLevel);
+  }
+
+  // Smooth scroll for anchor links (respects reduced motion)
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const hash = this.getAttribute('href');
@@ -623,7 +705,12 @@
       const target = document.querySelector(hash);
       if(target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+        // If reduced motion is active, scroll instantly
+        if (document.body.classList.contains('reduced-motion')) {
+          target.scrollIntoView({ behavior: 'auto' });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     });
   });
