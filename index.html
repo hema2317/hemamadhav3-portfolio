@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free icons) -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -174,6 +174,12 @@
       margin-bottom: 1.2rem;
     }
     .hero-highlight { color: var(--accent); }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-tertiary);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
     .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       padding: 0.8rem 1.8rem;
@@ -205,7 +211,7 @@
       background: var(--accent-soft);
     }
     .hero-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } .btn-group { justify-content: center; } }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } .hero-desc { margin-left: auto; margin-right: auto; } .btn-group { justify-content: center; } }
 
     /* section headings */
     .section-label {
@@ -374,7 +380,7 @@
       font-size: 0.8rem;
     }
     
-    /* Stats Grid - Minimal & Elegant */
+    /* Stats Grid */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -403,7 +409,7 @@
       font-weight: 500;
     }
     
-    /* Education Section - Refined Timeline Style */
+    /* Education Section - Bootcamps Only */
     .education-section {
       background: var(--bg-primary);
       border-radius: 2rem;
@@ -592,7 +598,7 @@
     </div>
   </section>
 
-  <!-- Featured Projects (kept from original) -->
+  <!-- Featured Projects -->
   <section id="work" class="projects-section">
     <div class="container">
       <div class="fade-up">
@@ -657,10 +663,10 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION - ELEGANT REDESIGN -->
+  <!-- ABOUT SECTION - Bootcamps Only -->
   <section id="about" class="about-section">
     <div class="container about-grid">
-      <!-- Left Column: Philosophy + Education -->
+      <!-- Left Column: Philosophy + Education (Bootcamps only) -->
       <div class="fade-up">
         <!-- Core Philosophy Card -->
         <div class="philosophy-card">
@@ -694,55 +700,32 @@
           </div>
         </div>
 
-        <!-- Education Section - Refined Timeline -->
+        <!-- Education Section - BOOTCAMPS ONLY (Caltech + Google) -->
         <div class="education-section">
           <div class="section-title-small">
-            <i class="fas fa-graduation-cap"></i> Education & Credentials
+            <i class="fas fa-certificate"></i> Professional Certifications
           </div>
           
-          <div class="education-item">
-            <div class="edu-header">
-              <span class="edu-degree"><i class="fas fa-university edu-icon"></i>Bachelor of Biotechnology</span>
-              <span class="edu-date">2011 – 2014</span>
-            </div>
-            <div class="edu-institution">Amity University, Noida, India</div>
-            <div class="edu-description">Final GPA: 4.0 — Foundation in biological sciences and research methodology.</div>
-          </div>
-
-          <div class="education-item">
-            <div class="edu-header">
-              <span class="edu-degree"><i class="fas fa-flask edu-icon"></i>Master’s in Biomedical Sciences</span>
-              <span class="edu-date">2017 – 2019</span>
-            </div>
-            <div class="edu-institution">University of Helsinki, Finland</div>
-            <div class="edu-description">Final GPA: 3.9 — Advanced studies in biomedical research and data analysis.</div>
-          </div>
-
+          <!-- Caltech UX/UI Boot Camp -->
           <div class="education-item">
             <div class="edu-header">
               <span class="edu-degree"><i class="fas fa-certificate edu-icon"></i>UX/UI Boot Camp</span>
               <span class="edu-date">Certificate</span>
             </div>
             <div class="edu-institution">Caltech (California Institute of Technology)</div>
-            <div class="edu-description">Intensive program in human-centered design, design systems, and advanced prototyping.</div>
+            <div class="edu-description">Intensive program in human-centered design, design systems, advanced prototyping, and interaction design.</div>
             <span class="edu-badge"><i class="fas fa-check-circle"></i> Professional Certificate</span>
           </div>
 
+          <!-- Google UX/UI Design Certificate -->
           <div class="education-item">
             <div class="edu-header">
-              <span class="edu-degree"><i class="fab fa-google edu-icon"></i>Google UX/UI Design Certificate</span>
+              <span class="edu-degree"><i class="fab fa-google edu-icon"></i>UX/UI Design Certificate</span>
               <span class="edu-date">Professional</span>
             </div>
             <div class="edu-institution">Google Career Certificates</div>
             <div class="edu-description">Comprehensive training in user research, wireframing, high-fidelity mockups, responsive design, and usability testing.</div>
             <span class="edu-badge"><i class="fas fa-check-circle"></i> Industry-recognized</span>
-          </div>
-
-          <div class="education-item">
-            <div class="edu-header">
-              <span class="edu-degree"><i class="fas fa-brain edu-icon"></i>Continuous Learning</span>
-            </div>
-            <div class="edu-description">AI product strategy, design ethics, accessibility-first design, and emerging technologies.</div>
           </div>
         </div>
         
@@ -799,7 +782,7 @@
   }, { threshold: 0.1 });
   fadeElements.forEach(el => obs.observe(el));
 
-  // Accessibility functions (fully working)
+  // Accessibility functions
   const highContrastBtn = document.getElementById('highContrastToggle');
   const reducedMotionBtn = document.getElementById('reducedMotionToggle');
   const fontSizeBtn = document.getElementById('increaseFontBtn');
