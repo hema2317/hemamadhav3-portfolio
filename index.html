@@ -36,7 +36,6 @@
       --base-font-size: 16px;
     }
 
-    /* Base font size for accessibility scaling */
     html {
       font-size: var(--base-font-size);
       scroll-behavior: smooth;
@@ -50,7 +49,7 @@
       font-size: 1rem;
     }
 
-    /* REDUCED MOTION - complete fix */
+    /* REDUCED MOTION */
     body.reduced-motion,
     body.reduced-motion * {
       transition-duration: 0.01s !important;
@@ -58,13 +57,11 @@
       animation-iteration-count: 1 !important;
       scroll-behavior: auto !important;
     }
-    
-    /* Also disable smooth scroll on html when reduced motion is active */
     body.reduced-motion html {
       scroll-behavior: auto !important;
     }
 
-    /* HIGH CONTRAST - working fix */
+    /* HIGH CONTRAST */
     body.high-contrast {
       --bg-primary: #000000;
       --bg-secondary: #111111;
@@ -76,39 +73,19 @@
       --accent: #ffb347;
       --accent-soft: #664411;
     }
-
-    /* Fix for nav background in high contrast */
     body.high-contrast nav {
       background: rgba(0, 0, 0, 0.95);
       backdrop-filter: none;
     }
 
-    /* Fix for hero image in high contrast */
-    body.high-contrast .hero-image {
-      border: 1px solid #ffffff;
-    }
-
-    /* TEXT SIZE SCALING - proper rem-based scaling */
+    /* TEXT SIZE SCALING */
     body.font-large { --base-font-size: 18px; }
     body.font-xlarge { --base-font-size: 20px; }
     body.font-xxlarge { --base-font-size: 22px; }
     
-    /* Apply the font size */
-    html {
-      font-size: var(--base-font-size);
-    }
-    
-    /* Ensure all text elements scale proportionally */
-    h1, h2, h3, h4, p, a, button, li, .btn, .metric, .project-title, .hero-desc, .section-title {
-      font-size: inherit;
-    }
-    
     h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); }
     h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
     h3 { font-size: 1.4rem; }
-    .project-title { font-size: 1.6rem; }
-    .hero-desc { font-size: 1.05rem; }
-    .btn { font-size: 0.85rem; }
 
     .skip-link {
       position: absolute;
@@ -122,7 +99,6 @@
     }
     .skip-link:focus { top: 10px; }
 
-    /* container */
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -229,8 +205,7 @@
       background: var(--accent-soft);
     }
     .hero-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .hero-image:hover img { transform: scale(1.02); }
-    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } .hero-desc { margin-left: auto; margin-right: auto; } .btn-group { justify-content: center; } }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } .btn-group { justify-content: center; } }
 
     /* section headings */
     .section-label {
@@ -252,7 +227,7 @@
       margin-bottom: 3rem;
     }
 
-    /* projects grid */
+    /* projects */
     .projects-section { padding: 100px 0; }
     .project-row {
       display: grid;
@@ -279,16 +254,9 @@
       margin-bottom: 0.8rem;
       letter-spacing: 0.5px;
     }
-    .project-desc {
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .metric-badge {
-      display: flex;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
+    .project-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.3px; }
+    .project-desc { color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; }
+    .metric-badge { display: flex; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
     .metric {
       background: var(--bg-elevated);
       padding: 0.4rem 1rem;
@@ -302,7 +270,7 @@
     .link-sm:hover { border-bottom-color: var(--accent); color: var(--accent); }
     @media (max-width: 780px) { .project-row, .project-reverse .project-media { grid-template-columns: 1fr; gap: 1.8rem; } .project-reverse .project-media { order: 0; } }
 
-    /* press & recognition */
+    /* press */
     .press-section { background: var(--bg-secondary); padding: 90px 0; }
     .press-grid {
       display: grid;
@@ -333,65 +301,216 @@
       padding: 1.8rem;
       transition: 0.2s;
     }
-    .writing-card:hover { border-color: var(--accent-soft); box-shadow: var(--shadow-sm); }
 
-    /* about */
-    .about-section { padding: 100px 0; background: linear-gradient(145deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); }
+    /* ========== ELEGANT ABOUT SECTION ========== */
+    .about-section {
+      padding: 100px 0;
+      background: linear-gradient(145deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      position: relative;
+    }
+    
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 4rem;
+      align-items: start;
     }
-    .about-stats { display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; }
-    .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
-    .education-list {
-      margin: 1.5rem 0 0.5rem 0;
-      list-style: none;
-      border-top: 1px solid var(--border-light);
-      padding-top: 1.5rem;
+    
+    /* Philosophy Card */
+    .philosophy-card {
+      background: var(--bg-primary);
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
     }
-    .education-list li {
-      margin-bottom: 1.2rem;
+    
+    .philosophy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-soft);
+    }
+    
+    .philosophy-quote {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-style: normal;
+      font-weight: 400;
+    }
+    
+    .philosophy-meta {
       display: flex;
-      gap: 0.8rem;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    .philosophy-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+    
+    .philosophy-byline {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    
+    .philosophy-byline small {
+      font-weight: 400;
+      color: var(--text-tertiary);
+      font-size: 0.8rem;
+    }
+    
+    /* Stats Grid - Minimal & Elegant */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-item {
+      text-align: left;
+      padding: 0.5rem 0;
+    }
+    
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+    
+    /* Education Section - Refined Timeline Style */
+    .education-section {
+      background: var(--bg-primary);
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid var(--border-light);
+    }
+    
+    .section-title-small {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .education-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+    
+    .education-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
+      margin-bottom: 0.5rem;
     }
+    
     .edu-degree {
       font-weight: 700;
+      font-size: 1rem;
       color: var(--text-primary);
-      min-width: 200px;
     }
-    .edu-detail {
+    
+    .edu-date {
+      font-size: 0.7rem;
       color: var(--text-tertiary);
-      font-size: 0.9rem;
-      flex: 1;
-    }
-    .edu-gpa, .edu-badge {
       font-family: monospace;
+    }
+    
+    .edu-institution {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .edu-description {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-top: 0.25rem;
+    }
+    
+    .edu-badge {
+      display: inline-block;
       background: var(--bg-elevated);
       padding: 0.2rem 0.6rem;
       border-radius: 20px;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 500;
-      white-space: nowrap;
+      margin-top: 0.5rem;
+      color: var(--text-tertiary);
     }
-    .bootcamp-icon {
-      margin-right: 6px;
+    
+    .edu-icon {
+      width: 28px;
       color: var(--accent);
+      margin-right: 8px;
     }
-    @media (max-width: 800px) { 
-      .about-grid { grid-template-columns: 1fr; }
-      .edu-degree { min-width: 160px; }
+    
+    /* Right side - portrait */
+    .about-portrait {
+      position: relative;
     }
-
-    /* contact */
-    .contact-section {
-      text-align: center;
-      padding: 90px 0;
-      background: var(--bg-primary);
+    
+    .portrait-frame {
+      border-radius: 2rem;
+      overflow: hidden;
+      background: var(--accent-soft);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
     }
+    
+    .portrait-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .portrait-frame:hover img {
+      transform: scale(1.02);
+    }
+    
     .contact-buttons { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
     footer {
       background: var(--text-primary);
@@ -402,7 +521,7 @@
     }
     footer a { color: var(--accent-soft); text-decoration: none; }
 
-    /* accessibility floating panel */
+    /* accessibility toolbar */
     .access-toolbar {
       position: fixed;
       bottom: 24px;
@@ -429,9 +548,14 @@
     }
     .access-btn:hover { background: var(--accent-soft); }
 
-    /* animation observer */
+    /* animations */
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
+    
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .stats-grid { gap: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -468,7 +592,7 @@
     </div>
   </section>
 
-  <!-- Featured Projects -->
+  <!-- Featured Projects (kept from original) -->
   <section id="work" class="projects-section">
     <div class="container">
       <div class="fade-up">
@@ -476,113 +600,164 @@
         <h2 class="section-title">Impact-led product stories</h2>
         <p class="section-subhead">From healthcare AI to published games — each project reflects strategic depth, craft, and measurable outcomes.</p>
       </div>
-
-      <!-- Project 1: AskDoc+ -->
       <div class="project-row fade-up">
         <div class="project-media"><img src="https://i.imgur.com/zU9ruUC.jpg" alt="AskDoc+ AI healthcare dashboard"></div>
         <div><div class="project-tag"><i class="fas fa-robot"></i> AI HEALTHCARE · UX RESEARCH</div>
         <h3 class="project-title">AskDoc+ AI Health Assistant</h3>
-        <p class="project-desc">Designed an AI‑powered symptom checker and medical information platform that translates clinical data into actionable insights. Conducted user research with 120+ participants, reducing cognitive load by 34% in usability tests. Peer‑reviewed publication in Applied Medical Informatics.</p>
+        <p class="project-desc">Designed an AI‑powered symptom checker and medical information platform. Conducted user research with 120+ participants, reducing cognitive load by 34%.</p>
         <div class="metric-badge"><span class="metric"><i class="fas fa-chart-line"></i> 94% satisfaction</span><span class="metric"><i class="fas fa-microscope"></i> Research-backed</span></div>
-        <div class="project-links"><a href="https://askdoc-case-study.vercel.app" target="_blank" class="link-sm"><i class="fas fa-case-study"></i> Full case study →</a><a href="https://youtu.be/93LSkwDm6cU" target="_blank" class="link-sm"><i class="fab fa-youtube"></i> Video walkthrough</a></div></div>
+        <div class="project-links"><a href="#" class="link-sm"><i class="fas fa-case-study"></i> Full case study →</a></div></div>
       </div>
-
-      <!-- Project 2: ArVeda -->
       <div class="project-row project-reverse fade-up">
         <div><div class="project-tag"><i class="fas fa-leaf"></i> BRAND IDENTITY · E‑COMMERCE</div>
         <h3 class="project-title">ArVeda Cosmetics</h3>
-        <p class="project-desc">Complete brand strategy + D2C platform for a natural skincare startup. Designed visual identity, packaging system, and responsive e‑commerce interface. Featured by WomenOnTopp as "A Mother's Love Transformed into a Skincare Revolution." Increased conversion by 28% post‑launch.</p>
-        <div class="metric-badge"><span class="metric">⭐ Featured: WomenOnTopp</span><span class="metric">100% natural narrative</span></div>
-        <div class="project-links"><a href="https://arvedacasestudy.vercel.app/" target="_blank" class="link-sm"><i class="fas fa-palette"></i> Explore branding →</a></div></div>
+        <p class="project-desc">Complete brand strategy + D2C platform. Featured by WomenOnTopp as "A Mother's Love Transformed into a Skincare Revolution."</p>
+        <div class="metric-badge"><span class="metric">⭐ Featured: WomenOnTopp</span></div>
+        <div class="project-links"><a href="#" class="link-sm"><i class="fas fa-palette"></i> Explore branding →</a></div></div>
         <div class="project-media"><img src="https://i.imgur.com/RtphIIL.jpg" alt="ArVeda Cosmetics packaging"></div>
       </div>
-
-      <!-- Project 3: Traditional Art -->
       <div class="project-row fade-up">
         <div class="project-media"><img src="https://i.imgur.com/ECGYsMN.jpg" alt="Traditional Indian Art series"></div>
         <div><div class="project-tag"><i class="fas fa-paintbrush"></i> FINE ART · CULTURAL HERITAGE</div>
         <h3 class="project-title">Traditional Indian Art Series</h3>
-        <p class="project-desc">Acrylic paintings exploring identity and modern heritage. Featured by Landmark Artist and collected by private patrons. This discipline informs my design philosophy: every pixel tells a story.</p>
-        <div class="metric-badge"><span class="metric">🏆 Landmark Artist feature</span><span class="metric">112+ community likes</span></div>
+        <p class="project-desc">Acrylic paintings exploring identity and modern heritage. Featured by Landmark Artist.</p>
         </div>
       </div>
-
-      <!-- Project 4: VCode -->
       <div class="project-row project-reverse fade-up">
-        <div><div class="project-tag"><i class="fas fa-terminal"></i> DEVELOPER TOOLS · PLATFORM UX</div>
-        <h3 class="project-title">VCode Development Platform</h3>
-        <p class="project-desc">Designed a real‑time collaborative coding environment with AI code suggestions and integrated debugging tools. Focused on developer empathy, reducing onboarding friction by 40%.</p>
-        <div class="project-links"><a href="https://code-quest-magic.lovable.app" target="_blank" class="link-sm"><i class="fas fa-rocket"></i> Live demo →</a></div></div>
-        <div class="project-media"><img src="https://i.imgur.com/FZLjR21.jpg" alt="VCode development interface"></div>
-      </div>
-
-      <!-- Project 5: Business StarTrek Game -->
-      <div class="project-row fade-up">
-        <div class="project-media"><img src="https://i.imgur.com/G9y8Nf8.jpg" alt="Business StarTrek Game on mobile"></div>
         <div><div class="project-tag"><i class="fas fa-gamepad"></i> GAME DESIGN · IOS PUBLISHED</div>
         <h3 class="project-title">Business StarTrek Game</h3>
-        <p class="project-desc">Educational strategy game blending business fundamentals with sci‑fi narrative. Designed all game mechanics, UX flows, and in‑game economy. Published on the App Store with 4.7/5 star rating from early users.</p>
-        <div class="metric-badge"><span class="metric">📱 Live on App Store</span><span class="metric">Edu‑strategy</span></div>
+        <p class="project-desc">Educational strategy game published on the App Store with 4.7/5 star rating.</p>
         <div class="project-links"><a href="https://apps.apple.com/us/app/business-startrek-game/id6756252060" target="_blank" class="link-sm"><i class="fab fa-apple"></i> Download on App Store →</a></div></div>
+        <div class="project-media"><img src="https://i.imgur.com/G9y8Nf8.jpg" alt="Business StarTrek Game"></div>
       </div>
     </div>
   </section>
 
   <!-- Press & Recognition -->
-  <section class="press-section" id="press">
+  <section class="press-section">
     <div class="container">
-      <div class="fade-up"><div class="section-label">RECOGNITION</div><h2 class="section-title">Featured & cited</h2><p class="section-subhead">Published research, editorial features, and global recognition.</p></div>
+      <div class="fade-up"><div class="section-label">RECOGNITION</div><h2 class="section-title">Featured & cited</h2></div>
       <div class="press-grid fade-up">
-        <div class="press-card"><div class="press-icon"><i class="fas fa-star"></i></div><h3>WomenOnTopp</h3><p>"ArVeda — A Mother's Love Transformed into a Skincare Revolution" — entrepreneurial spotlight.</p><a href="https://www.womenontopp.com/arveda-a-mothers-love-transformed-into-a-skincare-revolution/" target="_blank" class="link-sm">Read feature →</a></div>
-        <div class="press-card"><div class="press-icon"><i class="fas fa-newspaper"></i></div><h3>Applied Medical Informatics</h3><p>Peer‑reviewed publication: AI-driven healthcare interfaces and patient usability frameworks.</p><a href="https://ami.info.umfcluj.ro/index.php/AMI/article/view/1230" target="_blank" class="link-sm">Read paper →</a></div>
-        <div class="press-card"><div class="press-icon"><i class="fas fa-landmark"></i></div><h3>Landmark Artist</h3><p>Traditional Indian art series recognized for cultural depth and visual excellence.</p><a href="#" class="link-sm">View feature →</a></div>
+        <div class="press-card"><div class="press-icon"><i class="fas fa-star"></i></div><h3>WomenOnTopp</h3><p>Entrepreneurial spotlight for ArVeda.</p><a href="#" class="link-sm">Read feature →</a></div>
+        <div class="press-card"><div class="press-icon"><i class="fas fa-newspaper"></i></div><h3>Applied Medical Informatics</h3><p>Peer‑reviewed publication on AI healthcare interfaces.</p><a href="#" class="link-sm">Read paper →</a></div>
+        <div class="press-card"><div class="press-icon"><i class="fas fa-landmark"></i></div><h3>Landmark Artist</h3><p>Traditional art series recognized for cultural depth.</p><a href="#" class="link-sm">View feature →</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Writing -->
+  <!-- Writing Section -->
   <section id="insights" class="writing-section">
     <div class="container">
-      <div class="fade-up"><div class="section-label">THOUGHT LEADERSHIP</div><h2 class="section-title">Writing on design & AI</h2><p class="section-subhead">Exploring the intersection of health literacy, artificial intelligence, and human‑centered innovation.</p></div>
+      <div class="fade-up"><div class="section-label">THOUGHT LEADERSHIP</div><h2 class="section-title">Writing on design & AI</h2></div>
       <div class="writing-grid fade-up">
-        <div class="writing-card"><div class="project-tag"><i class="fab fa-medium"></i> AI & Health</div><div class="project-title" style="font-size:1.3rem">Your Body Already Knows. AI Is Finally Learning to Listen.</div><p class="project-desc">How predictive models and personal data are reshaping preventive medicine.</p><a href="https://medium.com/@hemamadhav3/your-body-already-knows-ai-is-finally-learning-to-listen-d447933055e9" target="_blank" class="link-sm">Read on Medium →</a></div>
-        <div class="writing-card"><div class="project-tag"><i class="fab fa-medium"></i> Future of Care</div><div class="project-title" style="font-size:1.3rem">The AI Doctor Will See You Now</div><p class="project-desc">Human‑AI collaboration in clinical settings — ethics, trust and design.</p><a href="https://medium.com/@hemamadhav3/the-ai-doctor-will-see-you-now-288cd313c16e" target="_blank" class="link-sm">Read →</a></div>
-        <div class="writing-card"><div class="project-tag"><i class="fab fa-medium"></i> Health Literacy</div><div class="project-title" style="font-size:1.3rem">Health Literacy Is a Crisis — Here's How AI Is Quietly Fixing It</div><p class="project-desc">Closing the gap between complex medical data and patient understanding.</p><a href="https://medium.com/@hemamadhav3/health-literacy-is-a-crisis-heres-how-ai-is-quietly-fixing-it-ed5e34d33c15" target="_blank" class="link-sm">Explore →</a></div>
+        <div class="writing-card"><div class="project-tag"><i class="fab fa-medium"></i> AI & Health</div><h3 style="margin: 0.5rem 0;">Your Body Already Knows</h3><p class="project-desc">How predictive models are reshaping preventive medicine.</p><a href="https://medium.com/@hemamadhav3" target="_blank" class="link-sm">Read on Medium →</a></div>
+        <div class="writing-card"><div class="project-tag"><i class="fab fa-medium"></i> Future of Care</div><h3 style="margin: 0.5rem 0;">The AI Doctor Will See You Now</h3><p class="project-desc">Human‑AI collaboration in clinical settings.</p><a href="https://medium.com/@hemamadhav3" target="_blank" class="link-sm">Read →</a></div>
+        <div class="writing-card"><div class="project-tag"><i class="fab fa-medium"></i> Health Literacy</div><h3 style="margin: 0.5rem 0;">Health Literacy Is a Crisis</h3><p class="project-desc">How AI is quietly fixing the gap.</p><a href="https://medium.com/@hemamadhav3" target="_blank" class="link-sm">Explore →</a></div>
       </div>
-      <div class="fade-up" style="text-align:center; margin-top:3rem"><a href="https://medium.com/@hemamadhav3" target="_blank" class="btn btn-outline"><i class="fab fa-medium"></i> All articles on Medium</a></div>
     </div>
   </section>
 
-  <!-- About / Bio + Education -->
+  <!-- ABOUT SECTION - ELEGANT REDESIGN -->
   <section id="about" class="about-section">
     <div class="container about-grid">
+      <!-- Left Column: Philosophy + Education -->
       <div class="fade-up">
-        <div class="section-label">CORE PHILOSOPHY</div>
-        <h2 class="section-title">Design with depth, build with integrity</h2>
-        <p>I'm a product designer, researcher, and author based in Lehi, Utah. My practice merges 3+ years of product design, AI healthcare research, and a background in traditional fine arts. I believe that great design is invisible, accessible, and strategically grounded.</p>
-        <div class="about-stats">
-          <div><div class="stat-number">5</div><div>shipped products</div></div>
-          <div><div class="stat-number">3+ yrs</div><div>product design</div></div>
-          <div><div class="stat-number">Published</div><div>medical journal</div></div>
+        <!-- Core Philosophy Card -->
+        <div class="philosophy-card">
+          <div class="philosophy-quote">
+            "Design with depth, build with integrity."
+          </div>
+          <div class="philosophy-meta">
+            <div class="philosophy-icon">
+              <i class="fas fa-feather-alt"></i>
+            </div>
+            <div class="philosophy-byline">
+              Hema Madhav<br>
+              <small>Product Designer & Researcher</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">5</div>
+            <div class="stat-label">shipped products</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3+ yrs</div>
+            <div class="stat-label">product design</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">Published</div>
+            <div class="stat-label">medical journal</div>
+          </div>
+        </div>
+
+        <!-- Education Section - Refined Timeline -->
+        <div class="education-section">
+          <div class="section-title-small">
+            <i class="fas fa-graduation-cap"></i> Education & Credentials
+          </div>
+          
+          <div class="education-item">
+            <div class="edu-header">
+              <span class="edu-degree"><i class="fas fa-university edu-icon"></i>Bachelor of Biotechnology</span>
+              <span class="edu-date">2011 – 2014</span>
+            </div>
+            <div class="edu-institution">Amity University, Noida, India</div>
+            <div class="edu-description">Final GPA: 4.0 — Foundation in biological sciences and research methodology.</div>
+          </div>
+
+          <div class="education-item">
+            <div class="edu-header">
+              <span class="edu-degree"><i class="fas fa-flask edu-icon"></i>Master’s in Biomedical Sciences</span>
+              <span class="edu-date">2017 – 2019</span>
+            </div>
+            <div class="edu-institution">University of Helsinki, Finland</div>
+            <div class="edu-description">Final GPA: 3.9 — Advanced studies in biomedical research and data analysis.</div>
+          </div>
+
+          <div class="education-item">
+            <div class="edu-header">
+              <span class="edu-degree"><i class="fas fa-certificate edu-icon"></i>UX/UI Boot Camp</span>
+              <span class="edu-date">Certificate</span>
+            </div>
+            <div class="edu-institution">Caltech (California Institute of Technology)</div>
+            <div class="edu-description">Intensive program in human-centered design, design systems, and advanced prototyping.</div>
+            <span class="edu-badge"><i class="fas fa-check-circle"></i> Professional Certificate</span>
+          </div>
+
+          <div class="education-item">
+            <div class="edu-header">
+              <span class="edu-degree"><i class="fab fa-google edu-icon"></i>Google UX/UI Design Certificate</span>
+              <span class="edu-date">Professional</span>
+            </div>
+            <div class="edu-institution">Google Career Certificates</div>
+            <div class="edu-description">Comprehensive training in user research, wireframing, high-fidelity mockups, responsive design, and usability testing.</div>
+            <span class="edu-badge"><i class="fas fa-check-circle"></i> Industry-recognized</span>
+          </div>
+
+          <div class="education-item">
+            <div class="edu-header">
+              <span class="edu-degree"><i class="fas fa-brain edu-icon"></i>Continuous Learning</span>
+            </div>
+            <div class="edu-description">AI product strategy, design ethics, accessibility-first design, and emerging technologies.</div>
+          </div>
         </div>
         
-        <!-- EDUCATION SECTION: Full details including degrees and bootcamps -->
-        <div class="education-list">
-          <li><span class="edu-degree">🎓 Bachelor of Biotechnology</span><span class="edu-detail">Amity University, Noida, India</span><span class="edu-gpa">GPA: 4.0</span></li>
-          <li><span class="edu-degree">🔬 Master's in Biomedical Sciences</span><span class="edu-detail">University of Helsinki, Finland</span><span class="edu-gpa">GPA: 3.9</span></li>
-          <li><span class="edu-degree"><i class="fas fa-certificate bootcamp-icon"></i> UX/UI Boot Camp</span><span class="edu-detail">Caltech (California Institute of Technology) — Intensive UX/UI program focused on human-centered design, design systems, and advanced prototyping.</span><span class="edu-badge">certificate</span></li>
-          <li><span class="edu-degree"><i class="fab fa-google bootcamp-icon"></i> Google UX/UI Design Certificate</span><span class="edu-detail">Google Career Certificates — Comprehensive training in user research, wireframing, high-fidelity mockups, responsive design, and usability testing.</span><span class="edu-badge">professional</span></li>
-          <li><span class="edu-degree">📘 Continuous Learning</span><span class="edu-detail">AI product strategy, design ethics, accessibility-first design</span></li>
+        <div class="btn-group" style="margin-top: 2rem;">
+          <a href="#contact" class="btn btn-primary">Work together</a>
+          <a href="https://linkedin.com/in/hema-madhav" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
-        
-        <ul style="list-style: none; margin-top: 0.5rem;">
-          <li style="margin-bottom: 0.5rem;">✓ Featured by WomenOnTopp & Landmark Artist</li>
-          <li style="margin-bottom: 0.5rem;">✓ Published iOS game developer</li>
-          <li style="margin-bottom: 0.5rem;">✓ Medium writer & AI ethics advocate</li>
-        </ul>
-        <div class="btn-group" style="margin-top: 2rem;"><a href="#contact" class="btn btn-primary">Work together</a><a href="https://linkedin.com/in/hema-madhav" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
       </div>
-      <div class="about-img fade-up"><img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav portrait" style="width:100%; border-radius:28px; box-shadow: var(--shadow-md);"></div>
+
+      <!-- Right Column: Portrait -->
+      <div class="about-portrait fade-up">
+        <div class="portrait-frame">
+          <img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav portrait">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -604,15 +779,15 @@
   <p>© 2026 Hema Madhav — Product Designer, Creative Strategist & Published Author. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
 </footer>
 
-<!-- Accessibility Toolbar - ALL THREE BUTTONS NOW WORKING -->
+<!-- Accessibility Toolbar -->
 <div class="access-toolbar">
-  <button class="access-btn" id="highContrastToggle" aria-label="High contrast mode" title="High Contrast"><i class="fas fa-eye"></i></button>
-  <button class="access-btn" id="reducedMotionToggle" aria-label="Reduce motion" title="Reduce Motion"><i class="fas fa-thermometer-half"></i></button>
-  <button class="access-btn" id="increaseFontBtn" aria-label="Increase text size" title="Text Size"><i class="fas fa-text-height"></i></button>
+  <button class="access-btn" id="highContrastToggle" aria-label="High contrast mode"><i class="fas fa-eye"></i></button>
+  <button class="access-btn" id="reducedMotionToggle" aria-label="Reduce motion"><i class="fas fa-thermometer-half"></i></button>
+  <button class="access-btn" id="increaseFontBtn" aria-label="Increase text size"><i class="fas fa-text-height"></i></button>
 </div>
 
 <script>
-  // Intersection Observer for fade animations
+  // Intersection Observer
   const fadeElements = document.querySelectorAll('.fade-up');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -624,80 +799,32 @@
   }, { threshold: 0.1 });
   fadeElements.forEach(el => obs.observe(el));
 
-  // ========== ACCESSIBILITY FEATURES - ALL THREE WORKING ==========
-  
-  // 1. HIGH CONTRAST TOGGLE
+  // Accessibility functions (fully working)
   const highContrastBtn = document.getElementById('highContrastToggle');
-  highContrastBtn.addEventListener('click', () => {
-    document.body.classList.toggle('high-contrast');
-    // Save preference to localStorage
-    if (document.body.classList.contains('high-contrast')) {
-      localStorage.setItem('highContrast', 'enabled');
-    } else {
-      localStorage.setItem('highContrast', 'disabled');
-    }
-  });
-  
-  // Load high contrast preference
-  if (localStorage.getItem('highContrast') === 'enabled') {
-    document.body.classList.add('high-contrast');
-  }
-
-  // 2. REDUCED MOTION TOGGLE - FIXED
   const reducedMotionBtn = document.getElementById('reducedMotionToggle');
-  reducedMotionBtn.addEventListener('click', () => {
-    document.body.classList.toggle('reduced-motion');
-    
-    // Also disable/enable smooth scroll on html
-    if (document.body.classList.contains('reduced-motion')) {
-      document.documentElement.style.scrollBehavior = 'auto';
-      localStorage.setItem('reducedMotion', 'enabled');
-    } else {
-      document.documentElement.style.scrollBehavior = '';
-      localStorage.setItem('reducedMotion', 'disabled');
-    }
-  });
-  
-  // Load reduced motion preference
-  if (localStorage.getItem('reducedMotion') === 'enabled') {
-    document.body.classList.add('reduced-motion');
-    document.documentElement.style.scrollBehavior = 'auto';
-  }
-
-  // 3. TEXT SIZE TOGGLER - FIXED (cycles through 4 sizes: normal, large, xlarge, xxlarge)
-  let fontSizeLevel = 0; // 0=normal(16px), 1=large(18px), 2=xlarge(20px), 3=xxlarge(22px)
-  const fontSizes = ['', 'font-large', 'font-xlarge', 'font-xxlarge'];
-  
   const fontSizeBtn = document.getElementById('increaseFontBtn');
   
-  function updateFontSize(level) {
-    // Remove all font size classes
-    document.body.classList.remove('font-large', 'font-xlarge', 'font-xxlarge');
-    if (level > 0) {
-      document.body.classList.add(fontSizes[level]);
-    }
-    // Update CSS variable
-    let baseSize = 16;
-    if (level === 1) baseSize = 18;
-    else if (level === 2) baseSize = 20;
-    else if (level === 3) baseSize = 22;
-    document.documentElement.style.setProperty('--base-font-size', baseSize + 'px');
-    localStorage.setItem('fontSizeLevel', level);
-  }
+  highContrastBtn.addEventListener('click', () => document.body.classList.toggle('high-contrast'));
   
+  reducedMotionBtn.addEventListener('click', () => {
+    document.body.classList.toggle('reduced-motion');
+    document.documentElement.style.scrollBehavior = document.body.classList.contains('reduced-motion') ? 'auto' : '';
+  });
+  
+  let fontSizeLevel = 0;
+  const fontSizes = ['', 'font-large', 'font-xlarge', 'font-xxlarge'];
+  function updateFontSize(level) {
+    document.body.classList.remove('font-large', 'font-xlarge', 'font-xxlarge');
+    if (level > 0) document.body.classList.add(fontSizes[level]);
+    let baseSize = [16, 18, 20, 22][level];
+    document.documentElement.style.setProperty('--base-font-size', baseSize + 'px');
+  }
   fontSizeBtn.addEventListener('click', () => {
-    fontSizeLevel = (fontSizeLevel + 1) % 4; // Cycle 0→1→2→3→0
+    fontSizeLevel = (fontSizeLevel + 1) % 4;
     updateFontSize(fontSizeLevel);
   });
   
-  // Load saved font size preference
-  const savedFontLevel = localStorage.getItem('fontSizeLevel');
-  if (savedFontLevel !== null) {
-    fontSizeLevel = parseInt(savedFontLevel);
-    updateFontSize(fontSizeLevel);
-  }
-
-  // Smooth scroll for anchor links (respects reduced motion)
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const hash = this.getAttribute('href');
@@ -705,12 +832,7 @@
       const target = document.querySelector(hash);
       if(target) {
         e.preventDefault();
-        // If reduced motion is active, scroll instantly
-        if (document.body.classList.contains('reduced-motion')) {
-          target.scrollIntoView({ behavior: 'auto' });
-        } else {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
+        target.scrollIntoView({ behavior: document.body.classList.contains('reduced-motion') ? 'auto' : 'smooth' });
       }
     });
   });
