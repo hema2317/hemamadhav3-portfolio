@@ -318,7 +318,46 @@
     }
     .about-stats { display: flex; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; }
     .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
-    @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+    .education-list {
+      margin: 1.5rem 0 0.5rem 0;
+      list-style: none;
+      border-top: 1px solid var(--border-light);
+      padding-top: 1.5rem;
+    }
+    .education-list li {
+      margin-bottom: 1.2rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .edu-degree {
+      font-weight: 700;
+      color: var(--text-primary);
+      min-width: 200px;
+    }
+    .edu-detail {
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+      flex: 1;
+    }
+    .edu-gpa, .edu-badge {
+      font-family: monospace;
+      background: var(--bg-elevated);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .bootcamp-icon {
+      margin-right: 6px;
+      color: var(--accent);
+    }
+    @media (max-width: 800px) { 
+      .about-grid { grid-template-columns: 1fr; }
+      .edu-degree { min-width: 160px; }
+    }
 
     /* contact */
     .contact-section {
@@ -487,13 +526,39 @@
     </div>
   </section>
 
-  <!-- About / Bio + stats -->
+  <!-- About / Bio + Education (Full academic record + Caltech & Google Bootcamps) -->
   <section id="about" class="about-section">
     <div class="container about-grid">
-      <div class="fade-up"><div class="section-label">CORE PHILOSOPHY</div><h2 class="section-title">Design with depth, build with integrity</h2><p>I'm a product designer, researcher, and author based in Lehi, Utah. My practice merges 3+ years of product design, AI healthcare research, and a background in traditional fine arts. I believe that great design is invisible, accessible, and strategically grounded.</p>
-      <div class="about-stats"><div><div class="stat-number">5</div><div>shipped products</div></div><div><div class="stat-number">3+ yrs</div><div>product design</div></div><div><div class="stat-number">Published</div><div>medical journal</div></div></div>
-      <ul style="list-style: none; margin-top: 0.5rem;"><li style="margin-bottom: 0.5rem;">✓ Featured by WomenOnTopp & Landmark Artist</li><li style="margin-bottom: 0.5rem;">✓ Published iOS game developer</li><li style="margin-bottom: 0.5rem;">✓ Medium writer & AI ethics advocate</li></ul>
-      <div class="btn-group" style="margin-top: 2rem;"><a href="#contact" class="btn btn-primary">Work together</a><a href="https://linkedin.com/in/hema-madhav" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a></div></div>
+      <div class="fade-up">
+        <div class="section-label">CORE PHILOSOPHY</div>
+        <h2 class="section-title">Design with depth, build with integrity</h2>
+        <p>I'm a product designer, researcher, and author based in Lehi, Utah. My practice merges 3+ years of product design, AI healthcare research, and a background in traditional fine arts. I believe that great design is invisible, accessible, and strategically grounded.</p>
+        <div class="about-stats">
+          <div><div class="stat-number">5</div><div>shipped products</div></div>
+          <div><div class="stat-number">3+ yrs</div><div>product design</div></div>
+          <div><div class="stat-number">Published</div><div>medical journal</div></div>
+        </div>
+        
+        <!-- EDUCATION SECTION: complete details including degrees and bootcamps -->
+        <div class="education-list">
+          <!-- Academic Degrees -->
+          <li><span class="edu-degree">🎓 Bachelor of Biotechnology</span><span class="edu-detail">Amity University, Noida, India</span><span class="edu-gpa">GPA: 4.0</span></li>
+          <li><span class="edu-degree">🔬 Master’s in Biomedical Sciences</span><span class="edu-detail">University of Helsinki, Finland</span><span class="edu-gpa">GPA: 3.9</span></li>
+          
+          <!-- Professional Bootcamps / Certifications -->
+          <li><span class="edu-degree"><i class="fas fa-certificate bootcamp-icon"></i> UX/UI Boot Camp</span><span class="edu-detail">Caltech (California Institute of Technology) — Intensive UX/UI program focused on human-centered design, design systems, and advanced prototyping.</span><span class="edu-badge">certificate</span></li>
+          <li><span class="edu-degree"><i class="fab fa-google bootcamp-icon"></i> Google UX/UI Design Certificate</span><span class="edu-detail">Google Career Certificates — Comprehensive training in user research, wireframing, high-fidelity mockups, responsive design, and usability testing.</span><span class="edu-badge">professional</span></li>
+          
+          <li><span class="edu-degree">📘 Continuous Learning</span><span class="edu-detail">AI product strategy, design ethics, accessibility-first design</span></li>
+        </div>
+        
+        <ul style="list-style: none; margin-top: 0.5rem;">
+          <li style="margin-bottom: 0.5rem;">✓ Featured by WomenOnTopp & Landmark Artist</li>
+          <li style="margin-bottom: 0.5rem;">✓ Published iOS game developer</li>
+          <li style="margin-bottom: 0.5rem;">✓ Medium writer & AI ethics advocate</li>
+        </ul>
+        <div class="btn-group" style="margin-top: 2rem;"><a href="#contact" class="btn btn-primary">Work together</a><a href="https://linkedin.com/in/hema-madhav" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
+      </div>
       <div class="about-img fade-up"><img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav portrait" style="width:100%; border-radius:28px; box-shadow: var(--shadow-md);"></div>
     </div>
   </section>
