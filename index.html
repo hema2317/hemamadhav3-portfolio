@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Hema Madhav — Product Designer, Creative Strategist & Published Author. Featured work in AI healthcare, brand identity, and design strategy.">
-  <title>Hema Madhav — Product Designer & Author | Top-Tier Portfolio</title>
+  <title>Hema Madhav — Product Designer & Author | Portfolio</title>
   <!-- Google Fonts + Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -409,7 +409,7 @@
       font-weight: 500;
     }
     
-    /* Education Section - Bootcamps Only */
+    /* Education Section - Bootcamps Only with Credly Link */
     .education-section {
       background: var(--bg-primary);
       border-radius: 2rem;
@@ -485,6 +485,13 @@
       font-weight: 500;
       margin-top: 0.5rem;
       color: var(--text-tertiary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .edu-badge:hover {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
     }
     
     .edu-icon {
@@ -517,6 +524,11 @@
       transform: scale(1.02);
     }
     
+    .contact-section {
+      padding: 90px 0;
+      text-align: center;
+      background: var(--bg-secondary);
+    }
     .contact-buttons { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
     footer {
       background: var(--text-primary);
@@ -663,12 +675,11 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION - Bootcamps Only -->
+  <!-- ABOUT SECTION - Bootcamps Only with Google Credly Link -->
   <section id="about" class="about-section">
     <div class="container about-grid">
-      <!-- Left Column: Philosophy + Education (Bootcamps only) -->
+      <!-- Left Column -->
       <div class="fade-up">
-        <!-- Core Philosophy Card -->
         <div class="philosophy-card">
           <div class="philosophy-quote">
             "Design with depth, build with integrity."
@@ -684,29 +695,16 @@
           </div>
         </div>
 
-        <!-- Stats -->
         <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">5</div>
-            <div class="stat-label">shipped products</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">3+ yrs</div>
-            <div class="stat-label">product design</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">Published</div>
-            <div class="stat-label">medical journal</div>
-          </div>
+          <div class="stat-item"><div class="stat-number">5</div><div class="stat-label">shipped products</div></div>
+          <div class="stat-item"><div class="stat-number">3+ yrs</div><div class="stat-label">product design</div></div>
+          <div class="stat-item"><div class="stat-number">Published</div><div class="stat-label">medical journal</div></div>
         </div>
 
-        <!-- Education Section - BOOTCAMPS ONLY (Caltech + Google) -->
         <div class="education-section">
           <div class="section-title-small">
             <i class="fas fa-certificate"></i> Professional Certifications
           </div>
-          
-          <!-- Caltech UX/UI Boot Camp -->
           <div class="education-item">
             <div class="edu-header">
               <span class="edu-degree"><i class="fas fa-certificate edu-icon"></i>UX/UI Boot Camp</span>
@@ -716,16 +714,16 @@
             <div class="edu-description">Intensive program in human-centered design, design systems, advanced prototyping, and interaction design.</div>
             <span class="edu-badge"><i class="fas fa-check-circle"></i> Professional Certificate</span>
           </div>
-
-          <!-- Google UX/UI Design Certificate -->
           <div class="education-item">
             <div class="edu-header">
               <span class="edu-degree"><i class="fab fa-google edu-icon"></i>UX/UI Design Certificate</span>
-              <span class="edu-date">Professional</span>
+              <span class="edu-date">Issued May 2023</span>
             </div>
-            <div class="edu-institution">Google Career Certificates</div>
+            <div class="edu-institution">Google Career Certificates (via Coursera)</div>
             <div class="edu-description">Comprehensive training in user research, wireframing, high-fidelity mockups, responsive design, and usability testing.</div>
-            <span class="edu-badge"><i class="fas fa-check-circle"></i> Industry-recognized</span>
+            <a href="https://www.credly.com/badges/a1f0e7a4-0f44-4364-a9eb-51922eec3123/linked_in_profile" target="_blank" class="edu-badge" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
+              <i class="fab fa-google"></i> View credential on Credly →
+            </a>
           </div>
         </div>
         
@@ -735,7 +733,6 @@
         </div>
       </div>
 
-      <!-- Right Column: Portrait -->
       <div class="about-portrait fade-up">
         <div class="portrait-frame">
           <img src="https://i.imgur.com/nU3uJnT.jpg" alt="Hema Madhav portrait">
@@ -744,7 +741,7 @@
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section with exact requested copy -->
   <section id="contact" class="contact-section">
     <div class="container">
       <h2 class="section-title">Let's build something remarkable</h2>
@@ -762,7 +759,6 @@
   <p>© 2026 Hema Madhav — Product Designer, Creative Strategist & Published Author. <a href="mailto:hemamadhav3@gmail.com">hemamadhav3@gmail.com</a></p>
 </footer>
 
-<!-- Accessibility Toolbar -->
 <div class="access-toolbar">
   <button class="access-btn" id="highContrastToggle" aria-label="High contrast mode"><i class="fas fa-eye"></i></button>
   <button class="access-btn" id="reducedMotionToggle" aria-label="Reduce motion"><i class="fas fa-thermometer-half"></i></button>
@@ -770,7 +766,6 @@
 </div>
 
 <script>
-  // Intersection Observer
   const fadeElements = document.querySelectorAll('.fade-up');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -782,7 +777,6 @@
   }, { threshold: 0.1 });
   fadeElements.forEach(el => obs.observe(el));
 
-  // Accessibility functions
   const highContrastBtn = document.getElementById('highContrastToggle');
   const reducedMotionBtn = document.getElementById('reducedMotionToggle');
   const fontSizeBtn = document.getElementById('increaseFontBtn');
@@ -807,7 +801,6 @@
     updateFontSize(fontSizeLevel);
   });
   
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const hash = this.getAttribute('href');
